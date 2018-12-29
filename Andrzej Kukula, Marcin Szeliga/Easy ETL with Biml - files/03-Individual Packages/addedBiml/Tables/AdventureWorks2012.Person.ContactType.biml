@@ -1,0 +1,25 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="ContactType" SchemaName="AdventureWorks2012.Person" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ContactTypeID" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_ContactType_ContactTypeID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ContactTypeID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_ContactType_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

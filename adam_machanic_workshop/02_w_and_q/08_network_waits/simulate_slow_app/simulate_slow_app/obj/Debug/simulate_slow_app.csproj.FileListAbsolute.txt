@@ -1,0 +1,41 @@
+C:\Documents and Settings\AMachani\Desktop\m\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Documents and Settings\AMachani\Desktop\m\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Documents and Settings\AMachani\Desktop\m\simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\m\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Documents and Settings\AMachani\Desktop\m\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Administrator\Desktop\mcm_r8\W2D1_M1_Waits_and_Queues_Demos\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Administrator\Desktop\mcm_r8\W2D1_M1_Waits_and_Queues_Demos\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Administrator\Desktop\mcm_r8\W2D1_M1_Waits_and_Queues_Demos\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Administrator\Desktop\mcm_r8\W2D1_M1_Waits_and_Queues_Demos\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Administrator\Desktop\mcm_r8\W2D1_M1_Waits_and_Queues_Demos\simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\mcm_r9\W2D1_M1_Waits_and_Queues_Demos\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Administrator\Desktop\mcm_r9\W2D1_M1_Waits_and_Queues_Demos\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\noGuessingDemos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\noGuessingDemos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\noGuessingDemos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\noGuessingDemos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\noGuessingDemos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\SQLbits2012_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLbits2012_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\SQLbits2012_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLbits2012_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\SQLbits2012_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\SQLSat111_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLSat111_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\SQLSat203_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLSat203_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\SQLSat203_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLSat203_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\SQLSat203_noMoreGuessing_Demos\02_w_and_q\05_simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\AIR_Worldwide\Day 2\Module 3 - Waits and Queues\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\AIR_Worldwide\Day 2\Module 3 - Waits and Queues\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\AIR_Worldwide\Day 2\Module 3 - Waits and Queues\08_network_waits\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\AIR_Worldwide\Day 2\Module 3 - Waits and Queues\08_network_waits\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\AIR_Worldwide\Day 2\Module 3 - Waits and Queues\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\SQLRally_nomoreguessing_demos\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\SQLRally_nomoreguessing_demos\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\sqlday_nomoreguessing\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\sqlday_nomoreguessing\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\sqlday_nomoreguessing\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.exe
+C:\Users\Adam\Desktop\sqlday_nomoreguessing\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\bin\Debug\simulate_slow_app.pdb
+C:\Users\Adam\Desktop\sqlday_nomoreguessing\02_w_and_q\08_network_waits\simulate_slow_app\simulate_slow_app\obj\Debug\simulate_slow_app.csprojResolveAssemblyReference.cache

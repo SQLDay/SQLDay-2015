@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:27:44"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{4805D545-3232-45CC-9B9A-184620C279E9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="AdventureWorks2012_Production_ProductReview"
+  DTS:ProtectionLevel="0"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{18E37E07-EE65-4548-B13F-0AE19921B450}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77775497-ED90-4B1C-8FC9-720B07C57D50}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{318EB0AB-260B-4CCF-8765-7585E3A9324F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="__Table_DDL_Production_ProductReview"
+      DTS:refId="Package\__Table_DDL_Production_ProductReview"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="Source"
+          SQLTask:SqlStatementSource="&#xA;                            SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[Production].[ProductReview]') AND type IN (N'U'))&#xA;DROP TABLE [Production].[ProductReview]&#xA;GO&#xA;&#xA;CREATE TABLE [Production].[ProductReview]&#xA;(&#xA;-- Columns Definition&#xA; [ProductReviewID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [ReviewerName] nvarchar(50) NOT NULL &#xA;, [ReviewDate] datetime NOT NULL &#xA;, [EmailAddress] nvarchar(50) NOT NULL &#xA;, [Rating] int NOT NULL &#xA;, [Comments] nvarchar(3850) &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;,CONSTRAINT [PK_ProductReview_ProductReviewID] PRIMARY KEY NONCLUSTERED&#xA;(&#xA;  [ProductReviewID] Asc) WITH(PAD_INDEX = OFF,IGNORE_DUP_KEY = OFF) ON &quot;default&quot;&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;ALTER TABLE [Production].[ProductReview]  WITH CHECK ADD CONSTRAINT [FK_ProductReview_Product_ProductID] FOREIGN KEY([ProductID])&#xA;REFERENCES [Production].[Product] ([ProductID])&#xA;GO&#xA;&#xA;ALTER TABLE [Production].[ProductReview] CHECK CONSTRAINT [FK_ProductReview_Product_ProductID]&#xA;GO&#xA;&#xA;&#xA;&#xA;CREATE  NONCLUSTERED INDEX [IX_ProductReview_ProductID_Name] ON [Production].[ProductReview]&#xA;      (&#xA;      [ProductID] Asc,[ReviewerName] Asc&#xA;      )&#xA;      INCLUDE ([Comments])&#xA;      WITH&#xA;      (&#xA;      PAD_INDEX = OFF,&#xA;SORT_IN_TEMPDB = OFF,&#xA;DROP_EXISTING = OFF,&#xA;IGNORE_DUP_KEY = OFF,&#xA;ONLINE = OFF&#xA;      )&#xA;      ON &quot;default&quot;&#xA;      GO&#xA;&#xA;&#xA;                        " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"></SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

@@ -1,0 +1,6 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Schemas>
+    <Schema Name="Person" DatabaseName="AdventureWorks2012" />
+    <Schema Name="AW" DatabaseName="Stage" />
+  </Schemas>
+</Biml>

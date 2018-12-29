@@ -1,0 +1,11 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Projects>
+        <PackageProject Name="Load to Stage" ProtectionLevel="EncryptSensitiveWithUserKey">
+            <Packages>
+				<# foreach (var package in RootNode.Packages) { #>
+                <Package PackageName="<#= package.Name #>" />
+				<# } #>
+			</Packages>
+        </PackageProject>
+    </Projects>
+</Biml>

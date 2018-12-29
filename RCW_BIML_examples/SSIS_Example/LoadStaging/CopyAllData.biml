@@ -1,0 +1,36 @@
+<#@ import namespace="Varigence.Biml.CoreLowerer.SchemaManagement" #>
+<#
+// This is inelegant.  We would normally use an approach similar to http://bimlscript.com/Snippet/Details/33 where we reference an existing connection.
+// In this case, we are instantiating a new connection in code, so that the sample is entirely self-contained in one file.
+var sourceConnectionString = "Provider=SQLNCLI10;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012";
+var connection = new AstOleDbConnectionNode(null) { ConnectionString = sourceConnectionString };
+var importResult = connection.ImportDB("","",ImportOptions.ExcludeForeignKey | ImportOptions.ExcludeColumnDefault | ImportOptions.ExcludeViews);#>
+
+  <Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Connections>
+      <OleDbConnection Name="Source" ConnectionString="<#=sourceConnectionString #>" />
+      <OleDbConnection Name="Target" ConnectionString="Provider=SQLNCLI10;Data Source=localhost;Integrated Security=SSPI;Initial Catalog=DataPatterns" />
+    </Connections>
+    <Packages>
+      <Package Name="Copy All" ConstraintMode="Parallel" AutoCreateConfigurationsType="None">
+        <Tasks>
+          <!-- Creates a new dataflow for each table in the target DB -->
+          <# foreach (var table in importResult.TableNodes) { #>
+          <Dataflow Name="Copy <#=table.Name#>">
+            <Transformations>
+              <OleDbSource Name="Retrieve <#=table.Name#>" ConnectionName="Source">
+                <DirectInput>SELECT * FROM <#=table.SchemaQualifiedName#></DirectInput>
+              </OleDbSource>
+              <OleDbDestination Name="Load <#=table.Name#>" ConnectionName="Target">
+                <ExternalTableOutput Table="<#=table.SchemaQualifiedName#>"/>
+              </OleDbDestination>
+            </Transformations>
+          </Dataflow>
+          <# } #>
+        </Tasks>
+      </Package>
+    </Packages>
+  </Biml>
+
+ <!-- http://bimlscript.com/Snippet/Details/84 -->  
+  

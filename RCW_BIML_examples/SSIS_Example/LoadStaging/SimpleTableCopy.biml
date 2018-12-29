@@ -1,0 +1,23 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Connections>
+    <OleDbConnection Name="Source" ConnectionString="Provider=SQLNCLI10;Data Source=CDM-S-SQL01\GENERIC;Integrated Security=SSPI;Initial Catalog=PivCRM_STG_Offline_ED" />
+    <OleDbConnection Name="Target" ConnectionString="Provider=SQLNCLI10;Data Source=.\SQL2014;Integrated Security=SSPI;Initial Catalog=PivCRM" />
+  </Connections>
+  <Packages>
+    <Package Name="Copy All" ConstraintMode="Parallel" AutoCreateConfigurationsType="None">
+      <Tasks>
+        <!-- Creates a new dataflow for each table in the target DB -->
+        <Dataflow Name="Copy tables">
+          <Transformations>
+            <OleDbSource Name="Retrieve Alert" ConnectionName="Source">
+              <DirectInput>SELECT * FROM dbo.Alert</DirectInput>
+            </OleDbSource>
+            <OleDbDestination Name="Load Alert" ConnectionName="Target">
+              <ExternalTableOutput Table="dbo.Alert"/>
+            </OleDbDestination>
+          </Transformations>
+        </Dataflow>
+      </Tasks>
+    </Package>
+  </Packages>
+</Biml>

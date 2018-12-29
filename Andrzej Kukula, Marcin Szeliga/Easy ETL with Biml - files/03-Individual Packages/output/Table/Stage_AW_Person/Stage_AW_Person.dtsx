@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:55"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{03E29921-81B9-46A0-AA02-AFC3A4E2568E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Stage_AW_Person"
+  DTS:ProtectionLevel="0"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{416EAFA4-22CC-4D99-A56E-F3776C30709F}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4F2118C2-164B-4514-995B-0094841E5B90}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E2BB5994-80B1-474B-9815-6CC45F1B595A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="__Table_DDL_AW_Person"
+      DTS:refId="Package\__Table_DDL_AW_Person"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="Stage"
+          SQLTask:SqlStatementSource="&#xA;                            SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[AW].[Person]') AND type IN (N'U'))&#xA;DROP TABLE [AW].[Person]&#xA;GO&#xA;&#xA;CREATE TABLE [AW].[Person]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [PersonType] nchar(2) NOT NULL &#xA;, [NameStyle] bit NOT NULL &#xA;, [Title] nvarchar(8) &#xA;, [FirstName] nvarchar(50) NOT NULL &#xA;, [MiddleName] nvarchar(50) &#xA;, [LastName] nvarchar(50) NOT NULL &#xA;, [Suffix] nvarchar(10) &#xA;, [EmailPromotion] int NOT NULL &#xA;, [AdditionalContactInfo] xml &#xA;, [Demographics] xml &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;, [LoadDateTime] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;                        " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"></SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

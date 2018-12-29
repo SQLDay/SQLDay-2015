@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:55"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{91C9AD6F-3B62-4C35-BD34-58777071DAC5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="AdventureWorks2012_HumanResources_Department"
+  DTS:ProtectionLevel="0"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{4C3AA5F6-C44C-40B4-8BF1-F680877E95AC}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A10B3CAB-1DAD-46C1-92DD-1C9FC8CFC021}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{CFD6720B-5BB5-4E75-BFCA-9CB1C37ABCD2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="__Table_DDL_HumanResources_Department"
+      DTS:refId="Package\__Table_DDL_HumanResources_Department"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="Source"
+          SQLTask:SqlStatementSource="&#xA;                            SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[HumanResources].[Department]') AND type IN (N'U'))&#xA;DROP TABLE [HumanResources].[Department]&#xA;GO&#xA;&#xA;CREATE TABLE [HumanResources].[Department]&#xA;(&#xA;-- Columns Definition&#xA; [DepartmentID] smallint IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [GroupName] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;,CONSTRAINT [PK_Department_DepartmentID] PRIMARY KEY NONCLUSTERED&#xA;(&#xA;  [DepartmentID] Asc) WITH(PAD_INDEX = OFF,IGNORE_DUP_KEY = OFF) ON &quot;default&quot;&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;CREATE UNIQUE NONCLUSTERED INDEX [AK_Department_Name] ON [HumanResources].[Department]&#xA;      (&#xA;      [Name] Asc&#xA;      )&#xA;      &#xA;      WITH&#xA;      (&#xA;      PAD_INDEX = OFF,&#xA;SORT_IN_TEMPDB = OFF,&#xA;DROP_EXISTING = OFF,&#xA;IGNORE_DUP_KEY = OFF,&#xA;ONLINE = OFF&#xA;      )&#xA;      ON &quot;default&quot;&#xA;      GO&#xA;&#xA;&#xA;                        " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"></SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

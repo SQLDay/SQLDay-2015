@@ -1,0 +1,26 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="Department" SchemaName="AdventureWorks2012.HumanResources" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="DepartmentID" DataType="Int16" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="GroupName" DataType="String" Length="50" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_Department_DepartmentID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="DepartmentID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_Department_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

@@ -1,0 +1,25 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Packages>
+		<# foreach (var table in RootNode.Tables.Where(t => t.LogicalDisplayFolder == "Source")) { #>
+        <Package Name="Load <#= table.Name #> to Stage" ProtectionLevel="EncryptSensitiveWithUserKey">
+            <Tasks>
+                <Dataflow Name="Copy <#= table.SsisSafeName #> to Stage">
+                    <Transformations>
+                        <OleDbSource Name="<#= table.SsisSafeScopedName #>" ConnectionName="Source">
+                            <TableInput TableName="AdventureWorks2012.<#= table.Schema.Name #>.<#= table.Name #>" />
+                        </OleDbSource>
+                        <DerivedColumns Name="Add LoadDateTime">
+                            <Columns>
+                                <Column Name="LoadDateTime" DataType="DateTime2" Scale="7">@[System::ContainerStartTime]</Column>
+                            </Columns>
+                        </DerivedColumns>
+                        <OleDbDestination Name="Stg<#= table.Name #>" ConnectionName="Stage">
+                            <TableOutput TableName="Stage.AW.<#= table.Name #>" />
+                        </OleDbDestination>
+                    </Transformations>
+                </Dataflow>
+            </Tasks>
+        </Package>
+		<# } #>
+    </Packages>
+</Biml>

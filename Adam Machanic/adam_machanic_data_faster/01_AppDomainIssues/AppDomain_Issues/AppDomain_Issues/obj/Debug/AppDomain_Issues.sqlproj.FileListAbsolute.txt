@@ -1,0 +1,9 @@
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\bin\Debug\AppDomain_Issues.dacpac
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\bin\Debug\AppDomain_Issues.dll
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\bin\Debug\AppDomain_Issues.pdb
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\Model.xml
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\refactor.xml
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\postdeploy.sql
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\predeploy.sql
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\AppDomain_Issues.dll
+C:\Users\Adam\Desktop\sqlday_Data_Faster\01_AppDomainIssues\AppDomain_Issues\AppDomain_Issues\obj\Debug\AppDomain_Issues.pdb

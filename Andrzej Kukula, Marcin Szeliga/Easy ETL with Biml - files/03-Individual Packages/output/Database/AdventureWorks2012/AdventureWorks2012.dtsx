@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:55"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{6AF95283-86CE-4E02-A0A6-2A4F7E9C6644}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="AdventureWorks2012"
+  DTS:ProtectionLevel="0"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{3F70B49B-FFBA-4FA2-B92F-A060DFB7694A}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{722B536C-8617-4FF7-8271-3235D12721FD}"
+      DTS:ObjectName="_CreateDB_AdventureWorks2012"
+      DTS:refId="Package.ConnectionManagers[_CreateDB_AdventureWorks2012]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8E8D353D-C991-4D01-9FF9-C266AC08C13F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="__Database_DDL_AdventureWorks2012"
+      DTS:refId="Package\__Database_DDL_AdventureWorks2012"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="_CreateDB_AdventureWorks2012"
+          SQLTask:SqlStatementSource="&#xA;                            IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'AdventureWorks2012')&#xA;      CREATE DATABASE AdventureWorks2012&#xA;&#xA;                        " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"></SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

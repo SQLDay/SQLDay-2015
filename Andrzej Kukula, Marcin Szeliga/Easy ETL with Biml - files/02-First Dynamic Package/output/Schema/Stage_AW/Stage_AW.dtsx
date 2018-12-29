@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:27:44"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{8C39B932-F554-4EED-ACA5-B43FF239ABB5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Stage_AW"
+  DTS:ProtectionLevel="0"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{BA20036C-05BA-4729-8A2F-892E14A1345B}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A3A90128-16A7-4E92-B1A3-F37070690B97}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3652C279-51F3-4004-9963-CEDC587377C0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="AW"
+      DTS:refId="Package\AW"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="Stage"
+          SQLTask:SqlStatementSource="&#xA;                            DECLARE @x nvarchar(4000);&#xA;                            SET @x = 'CREATE SCHEMA [AW];';&#xA;                            IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'AW')&#xA;                            EXEC(@x);&#xA;                    " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"></SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

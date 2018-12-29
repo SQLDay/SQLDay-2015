@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:54"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{8047E991-FE9E-4383-AF4C-3F3C4090EFED}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Load Product to Stage"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{D11A8A62-E2D8-40B9-9CC5-57CCCEE2F2A7}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9760FC3F-C185-4C32-B580-93DBC18ACB26}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2C68A17D-BE9E-42BA-B409-48F8CA2EA7EC}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{3FC3F130-EBE7-46CF-A120-BB471AC07529}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Product to Stage"
+      DTS:refId="Package\Copy Product to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="AdventureWorks2012_Production_Product"
+              refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product"
+              usesDispositions="true"
+              version="7">
+              <connections>
+                <connection
+                  connectionManagerID="{9760FC3F-C185-4C32-B580-93DBC18ACB26}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Connections[OleDbConnection]"></connection>
+              </connections>
+              <outputs>
+                <output
+                  name="Output"
+                  refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="25"
+                      name="ProductNumber"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductNumber]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="MakeFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[MakeFlag]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="FinishedGoodsFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[FinishedGoodsFlag]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="15"
+                      name="Color"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Color]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="SafetyStockLevel"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SafetyStockLevel]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="ReorderPoint"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ReorderPoint]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="StandardCost"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[StandardCost]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="ListPrice"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ListPrice]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="5"
+                      name="Size"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Size]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="3"
+                      name="SizeUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SizeUnitMeasureCode]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="3"
+                      name="WeightUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[WeightUnitMeasureCode]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="numeric"
+                      name="Weight"
+                      precision="8"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Weight]"
+                      scale="2"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="DaysToManufacture"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[DaysToManufacture]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="ProductLine"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductLine]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="Class"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Class]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="Style"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Style]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductSubcategoryID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductSubcategoryID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductModelID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductModelID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="SellStartDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SellStartDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="SellEndDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SellEndDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="DiscontinuedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[DiscontinuedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductID]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductID]"
+                      name="ProductID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Name]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductNumber]"
+                      length="25"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductNumber]"
+                      name="ProductNumber"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductNumber]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[MakeFlag]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[MakeFlag]"
+                      name="MakeFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[MakeFlag]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[FinishedGoodsFlag]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[FinishedGoodsFlag]"
+                      name="FinishedGoodsFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[FinishedGoodsFlag]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Color]"
+                      length="15"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Color]"
+                      name="Color"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Color]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SafetyStockLevel]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SafetyStockLevel]"
+                      name="SafetyStockLevel"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SafetyStockLevel]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ReorderPoint]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ReorderPoint]"
+                      name="ReorderPoint"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ReorderPoint]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[StandardCost]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[StandardCost]"
+                      name="StandardCost"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[StandardCost]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ListPrice]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ListPrice]"
+                      name="ListPrice"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ListPrice]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Size]"
+                      length="5"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Size]"
+                      name="Size"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Size]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SizeUnitMeasureCode]"
+                      length="3"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SizeUnitMeasureCode]"
+                      name="SizeUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SizeUnitMeasureCode]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[WeightUnitMeasureCode]"
+                      length="3"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[WeightUnitMeasureCode]"
+                      name="WeightUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[WeightUnitMeasureCode]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Weight]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Weight]"
+                      name="Weight"
+                      precision="8"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Weight]"
+                      scale="2"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[DaysToManufacture]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DaysToManufacture]"
+                      name="DaysToManufacture"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DaysToManufacture]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductLine]"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductLine]"
+                      name="ProductLine"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductLine]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Class]"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Class]"
+                      name="Class"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Class]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[Style]"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Style]"
+                      name="Style"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Style]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductSubcategoryID]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductSubcategoryID]"
+                      name="ProductSubcategoryID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductSubcategoryID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ProductModelID]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductModelID]"
+                      name="ProductModelID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductModelID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SellStartDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellStartDate]"
+                      name="SellStartDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellStartDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[SellEndDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellEndDate]"
+                      name="SellEndDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellEndDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[DiscontinuedDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DiscontinuedDate]"
+                      name="DiscontinuedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DiscontinuedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[rowguid]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ModifiedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductID]"
+                      name="ProductID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductID]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Name]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductNumber]"
+                      name="ProductNumber"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductNumber]"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[MakeFlag]"
+                      name="MakeFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[MakeFlag]"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[FinishedGoodsFlag]"
+                      name="FinishedGoodsFlag"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[FinishedGoodsFlag]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Color]"
+                      name="Color"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Color]"></outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SafetyStockLevel]"
+                      name="SafetyStockLevel"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SafetyStockLevel]"></outputColumn>
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ReorderPoint]"
+                      name="ReorderPoint"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ReorderPoint]"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[StandardCost]"
+                      name="StandardCost"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[StandardCost]"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ListPrice]"
+                      name="ListPrice"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ListPrice]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Size]"
+                      name="Size"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Size]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SizeUnitMeasureCode]"
+                      name="SizeUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SizeUnitMeasureCode]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[WeightUnitMeasureCode]"
+                      name="WeightUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[WeightUnitMeasureCode]"></outputColumn>
+                    <outputColumn
+                      dataType="numeric"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Weight]"
+                      name="Weight"
+                      precision="8"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Weight]"
+                      scale="2"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[DaysToManufacture]"
+                      name="DaysToManufacture"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[DaysToManufacture]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductLine]"
+                      name="ProductLine"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductLine]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Class]"
+                      name="Class"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Class]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Style]"
+                      name="Style"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[Style]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductSubcategoryID]"
+                      name="ProductSubcategoryID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductSubcategoryID]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductModelID]"
+                      name="ProductModelID"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ProductModelID]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SellStartDate]"
+                      name="SellStartDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SellStartDate]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SellEndDate]"
+                      name="SellEndDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[SellEndDate]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[DiscontinuedDate]"
+                      name="DiscontinuedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[DiscontinuedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[rowguid]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ModifiedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Production].[Product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+            </component>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="Add LoadDateTime"
+              refId="Package\Copy Product to Stage\Add LoadDateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  name="AdventureWorks2012_Production_Product_Output_Add LoadDateTime"
+                  refId="Package\Copy Product to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Product_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  name="Output"
+                  refId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Output]"
+                  synchronousInputId="Package\Copy Product to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Product_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      name="LoadDateTime"
+                      refId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::ContainerStartTime]</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::ContainerStartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Error]"
+                  synchronousInputId="Package\Copy Product to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Product_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="StgProduct"
+              refId="Package\Copy Product to Stage\StgProduct"
+              usesDispositions="true"
+              version="4">
+              <connections>
+                <connection
+                  connectionManagerID="{2C68A17D-BE9E-42BA-B409-48F8CA2EA7EC}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Product to Stage\StgProduct.Connections[OleDbConnection]"></connection>
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Add LoadDateTime_Output_StgProduct"
+                  refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductID"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="25"
+                      name="ProductNumber"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductNumber]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="MakeFlag"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[MakeFlag]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="FinishedGoodsFlag"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[FinishedGoodsFlag]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="15"
+                      name="Color"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Color]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="SafetyStockLevel"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SafetyStockLevel]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="ReorderPoint"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ReorderPoint]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="StandardCost"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[StandardCost]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="ListPrice"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ListPrice]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="5"
+                      name="Size"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Size]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="3"
+                      name="SizeUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SizeUnitMeasureCode]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="3"
+                      name="WeightUnitMeasureCode"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[WeightUnitMeasureCode]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="numeric"
+                      name="Weight"
+                      precision="8"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Weight]"
+                      scale="2"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="DaysToManufacture"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[DaysToManufacture]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="ProductLine"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductLine]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="Class"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Class]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="Style"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Style]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductSubcategoryID"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductSubcategoryID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="ProductModelID"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductModelID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="SellStartDate"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SellStartDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="SellEndDate"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SellEndDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="DiscontinuedDate"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[DiscontinuedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="LoadDateTime"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[LoadDateTime]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LoadDateTime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[LoadDateTime]"
+                      lineageId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[LoadDateTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Name]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Name]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Name]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="ProductNumber"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductNumber]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductNumber]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ProductNumber]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="bool"
+                      cachedName="MakeFlag"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[MakeFlag]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[MakeFlag]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[MakeFlag]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="bool"
+                      cachedName="FinishedGoodsFlag"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[FinishedGoodsFlag]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[FinishedGoodsFlag]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[FinishedGoodsFlag]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Color"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Color]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Color]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Color]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="SafetyStockLevel"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SafetyStockLevel]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SafetyStockLevel]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[SafetyStockLevel]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i2"
+                      cachedName="ReorderPoint"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ReorderPoint]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ReorderPoint]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ReorderPoint]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="StandardCost"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[StandardCost]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[StandardCost]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[StandardCost]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="ListPrice"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ListPrice]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ListPrice]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ListPrice]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Size"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Size]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Size]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Size]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="SizeUnitMeasureCode"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SizeUnitMeasureCode]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SizeUnitMeasureCode]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[SizeUnitMeasureCode]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="WeightUnitMeasureCode"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[WeightUnitMeasureCode]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[WeightUnitMeasureCode]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[WeightUnitMeasureCode]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="numeric"
+                      cachedName="Weight"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Weight]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Weight]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Weight]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="DaysToManufacture"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[DaysToManufacture]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DaysToManufacture]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[DaysToManufacture]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="ProductLine"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductLine]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductLine]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ProductLine]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Class"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Class]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Class]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Class]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Style"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[Style]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[Style]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[Style]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryID"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductSubcategoryID]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductSubcategoryID]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ProductSubcategoryID]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="ProductModelID"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ProductModelID]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ProductModelID]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ProductModelID]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SellStartDate"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SellStartDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellStartDate]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[SellStartDate]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SellEndDate"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[SellEndDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[SellEndDate]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[SellEndDate]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DiscontinuedDate"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[DiscontinuedDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[DiscontinuedDate]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[DiscontinuedDate]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[rowguid]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[rowguid]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output].Columns[ModifiedDate]"
+                      refId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct].Columns[ModifiedDate]"></inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Product to Stage\StgProduct.Outputs[Error]"
+                  synchronousInputId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\StgProduct.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Product to Stage\StgProduct.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Product to Stage\StgProduct.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Product to Stage\StgProduct.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AW].[Product]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="Package\Copy Product to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Product_Output_Add LoadDateTime]"
+              name="AdventureWorks2012_Production_Product_Output_Add LoadDateTime"
+              refId="Package\Copy Product to Stage.Paths[AdventureWorks2012_Production_Product_Output_Add LoadDateTime]"
+              startId="Package\Copy Product to Stage\AdventureWorks2012_Production_Product.Outputs[Output]"></path>
+            <path
+              endId="Package\Copy Product to Stage\StgProduct.Inputs[Add LoadDateTime_Output_StgProduct]"
+              name="Add LoadDateTime_Output_StgProduct"
+              refId="Package\Copy Product to Stage.Paths[Add LoadDateTime_Output_StgProduct]"
+              startId="Package\Copy Product to Stage\Add LoadDateTime.Outputs[Output]"></path>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

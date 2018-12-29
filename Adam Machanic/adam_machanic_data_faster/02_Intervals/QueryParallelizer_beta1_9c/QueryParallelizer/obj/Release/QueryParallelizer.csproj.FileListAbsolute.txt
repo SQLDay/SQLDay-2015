@@ -1,0 +1,148 @@
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\QueryParallelizer\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\parallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\QueryParallelizer_v2\QueryParallelizer_v2\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v3\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer_v5\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\QueryParallelizer_vn\QueryParallelizer\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\old\Desktop\QueryParallelizer_a4\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_vN\QueryParallelizer_a5\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_a6\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer_a7\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_a9\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\QueryParallelizer_beta1_1\QueryParallelizer_beta1_2\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_3\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\extreme_query_perf\Day1_Demos\06_Streaming\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_5\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_6\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_7\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_9\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_9\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_9\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_9\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\amachani\Desktop\QueryParallelizer_beta1_9\QueryParallelizer\obj\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\bin\Release\QueryParallelizer.dll.config
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\bin\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\bin\Release\QueryParallelizer.pdb
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\obj\Release\QueryParallelizer.dll
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\QueryParallelizer_beta1_9c\QueryParallelizer\obj\Release\QueryParallelizer.pdb

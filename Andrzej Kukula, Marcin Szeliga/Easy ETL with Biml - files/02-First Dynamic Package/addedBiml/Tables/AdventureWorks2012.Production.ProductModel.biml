@@ -1,0 +1,33 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="ProductModel" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ProductModelID" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="CatalogDescription" DataType="Xml" IsNullable="true" />
+                <Column Name="Instructions" DataType="Xml" IsNullable="true" />
+                <Column Name="rowguid" DataType="Guid" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_ProductModel_ProductModelID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ProductModelID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_ProductModel_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+                <Index Name="AK_ProductModel_rowguid" Unique="true">
+                    <Columns>
+                        <Column ColumnName="rowguid" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

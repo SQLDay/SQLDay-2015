@@ -1,0 +1,70 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/5/2016 1:33:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN03350"
+  DTS:CreatorName="Kamil.Nowinski"
+  DTS:DTSID="{C9553A90-32A7-4685-AF27-D970F85E0035}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DropCreateStagingTables"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{18BF2F77-C45C-48C7-A03F-CA1F091D8AF6}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destination]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FE558723-629F-4CB5-9481-7EDF20B7AA1F}"
+      DTS:ObjectName="Destination">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Server=localhost;Initial Catalog=VSOStats;Provider=SQLNCLI10;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Drop and Create dbo_WorkItems"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{68CD42E2-C95B-421E-BDC9-ECC06320E5FA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop and Create dbo_WorkItems"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FE558723-629F-4CB5-9481-7EDF20B7AA1F}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[WorkItems]') AND type IN (N'U'))&#xA;DROP TABLE [dbo].[WorkItems]&#xA;GO&#xA;&#xA;CREATE TABLE [dbo].[WorkItems]&#xA;(&#xA;-- Columns Definition&#xA; [Type] nvarchar(500) NOT NULL &#xA;, [Title] nvarchar(500) NOT NULL &#xA;, [WorkitemID] int NOT NULL &#xA;, [Revision] int NOT NULL &#xA;, [Area] nvarchar(500) NOT NULL &#xA;, [Iteration] nvarchar(500) &#xA;, [ChangedBy] nvarchar(500) &#xA;, [ChangedDate] datetime &#xA;, [WorkCompletedOld] decimal(18,2) &#xA;, [WorkCompletedNew] decimal(18,2) &#xA;, [WorkCompletedChange] decimal(18,2) &#xA;, [WorkRemainingOld] decimal(18,2) &#xA;, [WorkRemainingNew] decimal(18,2) &#xA;, [WorkRemainingChange] decimal(18,2) &#xA;, [History] varchar(16) &#xA;, [Type] nvarchar(500) NOT NULL &#xA;, [Title] nvarchar(500) NOT NULL &#xA;, [WorkitemID] int NOT NULL &#xA;, [Revision] int NOT NULL &#xA;, [Area] nvarchar(500) NOT NULL &#xA;, [Iteration] nvarchar(500) &#xA;, [ChangedBy] nvarchar(500) &#xA;, [ChangedDate] datetime &#xA;, [WorkCompletedOld] decimal(18,2) &#xA;, [WorkCompletedNew] decimal(18,2) &#xA;, [WorkCompletedChange] decimal(18,2) &#xA;, [WorkRemainingOld] decimal(18,2) &#xA;, [WorkRemainingNew] decimal(18,2) &#xA;, [WorkRemainingChange] decimal(18,2) &#xA;, [History] varchar(16) &#xA;&#xA;-- Constraints&#xA;,CONSTRAINT [PK_WorkItems] PRIMARY KEY NONCLUSTERED&#xA;(&#xA;  [WorkitemID] Asc,[Revision] Asc) WITH(PAD_INDEX = OFF,IGNORE_DUP_KEY = OFF) ON &quot;default&quot;&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Drop and Create dbo_WorkItems"
+          TopLeft="203.5,88.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

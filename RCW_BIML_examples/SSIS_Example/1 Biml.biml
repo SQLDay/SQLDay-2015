@@ -1,0 +1,35 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Connections>
+    <Connection Name="Source" ConnectionString="Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></Connection>
+    <Connection Name="Destination" ConnectionString="Data Source=.;Initial Catalog=test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></Connection>
+  </Connections>
+
+  <Packages>
+    <Package  Name="FirstBIML" >
+      <Tasks>
+        <Container Name="CNT - flow" >
+          <Tasks>
+            <ExecuteSQL ConnectionName="Destination" Name="SQL - Clean">
+              <DirectInput>TRUNCATE TABLE dbo.dstTable</DirectInput>
+            </ExecuteSQL>
+            <Dataflow Name="DFT - Load data">
+              <Transformations>
+                <OleDbSource ConnectionName="Source" Name="OLE_SRC - srcTable">
+                  <ExternalTableInput Table="dbo.srcTable"></ExternalTableInput>
+                </OleDbSource>
+                <OleDbDestination ConnectionName="Destination" Name="OLE_DST - dstTable">
+                  <ExternalTableOutput Table="dbo.dstTable"></ExternalTableOutput>
+                </OleDbDestination>
+              </Transformations>
+              <PrecedenceConstraints>
+                <Inputs>
+                  <Input OutputPathName="SQL - Clean.Output"></Input>
+                </Inputs>
+              </PrecedenceConstraints>
+            </Dataflow>
+          </Tasks>
+        </Container>
+      </Tasks>
+    </Package>
+  </Packages>
+</Biml>

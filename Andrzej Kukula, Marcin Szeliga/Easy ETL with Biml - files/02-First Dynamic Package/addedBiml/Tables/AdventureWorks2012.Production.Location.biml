@@ -1,0 +1,27 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="Location" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="LocationID" DataType="Int16" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="CostRate" DataType="Object" CustomType="smallmoney" />
+                <Column Name="Availability" DataType="Decimal" Precision="8" Scale="2" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_Location_LocationID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="LocationID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_Location_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

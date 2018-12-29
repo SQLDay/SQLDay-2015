@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:54"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{63E7407D-CA68-4F09-AC6B-7357D37A30F9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Load BusinessEntity to Stage"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{7DC1A29B-2229-407B-8424-77C5C0922BCF}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FA69B862-78A2-4457-9461-7563A36F8AEE}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A3ACA24F-D4AA-4B95-89DD-74A5619A2223}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{C0C338D5-9497-423B-A40F-BABDAC255AC0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy BusinessEntity to Stage"
+      DTS:refId="Package\Copy BusinessEntity to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="AdventureWorks2012_Person_BusinessEntity"
+              refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity"
+              usesDispositions="true"
+              version="7">
+              <connections>
+                <connection
+                  connectionManagerID="{FA69B862-78A2-4457-9461-7563A36F8AEE}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Connections[OleDbConnection]"></connection>
+              </connections>
+              <outputs>
+                <output
+                  name="Output"
+                  refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="BusinessEntityID"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[BusinessEntityID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[BusinessEntityID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[rowguid]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[ModifiedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[BusinessEntityID]"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[rowguid]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ModifiedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Person].[BusinessEntity]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+            </component>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="Add LoadDateTime"
+              refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  name="AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime"
+                  refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  name="Output"
+                  refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Output]"
+                  synchronousInputId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      name="LoadDateTime"
+                      refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::ContainerStartTime]</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::ContainerStartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Error]"
+                  synchronousInputId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="StgBusinessEntity"
+              refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity"
+              usesDispositions="true"
+              version="4">
+              <connections>
+                <connection
+                  connectionManagerID="{A3ACA24F-D4AA-4B95-89DD-74A5619A2223}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Connections[OleDbConnection]"></connection>
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Add LoadDateTime_Output_StgBusinessEntity"
+                  refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="BusinessEntityID"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[BusinessEntityID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="LoadDateTime"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[LoadDateTime]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LoadDateTime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[LoadDateTime]"
+                      lineageId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].Columns[LoadDateTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[rowguid]"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].Columns[rowguid]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output].Columns[ModifiedDate]"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity].Columns[ModifiedDate]"></inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Outputs[Error]"
+                  synchronousInputId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AW].[BusinessEntity]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime]"
+              name="AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime"
+              refId="Package\Copy BusinessEntity to Stage.Paths[AdventureWorks2012_Person_BusinessEntity_Output_Add LoadDateTime]"
+              startId="Package\Copy BusinessEntity to Stage\AdventureWorks2012_Person_BusinessEntity.Outputs[Output]"></path>
+            <path
+              endId="Package\Copy BusinessEntity to Stage\StgBusinessEntity.Inputs[Add LoadDateTime_Output_StgBusinessEntity]"
+              name="Add LoadDateTime_Output_StgBusinessEntity"
+              refId="Package\Copy BusinessEntity to Stage.Paths[Add LoadDateTime_Output_StgBusinessEntity]"
+              startId="Package\Copy BusinessEntity to Stage\Add LoadDateTime.Outputs[Output]"></path>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

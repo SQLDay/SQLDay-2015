@@ -1,0 +1,18 @@
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.dll.config
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.pdb
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\QueryParallelizer.dll
+C:\Documents and Settings\AMachani\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\bin\Debug\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer\QueryParallelizer\obj\Debug\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Debug\QueryParallelizer.dll.config
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Debug\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\bin\Debug\QueryParallelizer.pdb
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Debug\QueryParallelizer.dll
+C:\Users\Administrator\Desktop\parallelizer\QueryParallelizer_v2\QueryParallelizer\obj\Debug\QueryParallelizer.pdb

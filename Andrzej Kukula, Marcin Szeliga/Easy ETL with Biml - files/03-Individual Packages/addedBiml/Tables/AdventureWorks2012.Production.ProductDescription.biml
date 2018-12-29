@@ -1,0 +1,26 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="ProductDescription" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ProductDescriptionID" IdentityIncrement="1" />
+                <Column Name="Description" DataType="String" Length="400" />
+                <Column Name="rowguid" DataType="Guid" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_ProductDescription_ProductDescriptionID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ProductDescriptionID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_ProductDescription_rowguid" Unique="true">
+                    <Columns>
+                        <Column ColumnName="rowguid" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

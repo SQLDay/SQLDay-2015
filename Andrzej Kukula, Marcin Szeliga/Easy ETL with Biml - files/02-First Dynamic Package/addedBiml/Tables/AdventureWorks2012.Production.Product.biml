@@ -1,0 +1,57 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="Product" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ProductID" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="ProductNumber" DataType="String" Length="25" />
+                <Column Name="MakeFlag" DataType="Boolean" />
+                <Column Name="FinishedGoodsFlag" DataType="Boolean" />
+                <Column Name="Color" DataType="String" Length="15" IsNullable="true" />
+                <Column Name="SafetyStockLevel" DataType="Int16" />
+                <Column Name="ReorderPoint" DataType="Int16" />
+                <Column Name="StandardCost" DataType="Currency" />
+                <Column Name="ListPrice" DataType="Currency" />
+                <Column Name="Size" DataType="String" Length="5" IsNullable="true" />
+                <Column Name="SizeUnitMeasureCode" DataType="StringFixedLength" Length="3" IsNullable="true" />
+                <Column Name="WeightUnitMeasureCode" DataType="StringFixedLength" Length="3" IsNullable="true" />
+                <Column Name="Weight" DataType="Decimal" Precision="8" Scale="2" IsNullable="true" />
+                <Column Name="DaysToManufacture" />
+                <Column Name="ProductLine" DataType="StringFixedLength" Length="2" IsNullable="true" />
+                <Column Name="Class" DataType="StringFixedLength" Length="2" IsNullable="true" />
+                <Column Name="Style" DataType="StringFixedLength" Length="2" IsNullable="true" />
+                <Column Name="ProductSubcategoryID" IsNullable="true" />
+                <TableReference Name="ProductModelID" IsNullable="true" ForeignKeyNameOverride="FK_Product_ProductModel_ProductModelID" TableName="AdventureWorks2012.Production.ProductModel" />
+                <Column Name="SellStartDate" DataType="DateTime" />
+                <Column Name="SellEndDate" DataType="DateTime" IsNullable="true" />
+                <Column Name="DiscontinuedDate" DataType="DateTime" IsNullable="true" />
+                <Column Name="rowguid" DataType="Guid" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_Product_ProductID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ProductID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_Product_ProductNumber" Unique="true">
+                    <Columns>
+                        <Column ColumnName="ProductNumber" />
+                    </Columns>
+                </Index>
+                <Index Name="AK_Product_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+                <Index Name="AK_Product_rowguid" Unique="true">
+                    <Columns>
+                        <Column ColumnName="rowguid" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

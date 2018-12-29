@@ -1,0 +1,5 @@
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\bin\Release\intervals.dll
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\obj\Release\intervals.dll
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\intervals\intervals\bin\Release\intervals.dll
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\intervals\intervals\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Adam\Desktop\TechEd2013_Data_Faster\02_Intervals\intervals\intervals\obj\Release\intervals.dll

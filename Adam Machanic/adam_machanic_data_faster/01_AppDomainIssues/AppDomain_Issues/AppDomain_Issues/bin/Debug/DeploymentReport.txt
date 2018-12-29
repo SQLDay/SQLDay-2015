@@ -1,0 +1,20 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [AppDomain_Issues] (Assembly)
+       [dbo].[GetNumbers] (Function)
+       [dbo].[EnterMonitorAndSleep] (Procedure)
+       [dbo].[SpinFor20Seconds_NoYield] (Procedure)
+       [dbo].[SpinFor20Seconds_Preemptive] (Procedure)
+       [dbo].[SpinFor20Seconds_Yield] (Procedure)
+
+** Supporting actions

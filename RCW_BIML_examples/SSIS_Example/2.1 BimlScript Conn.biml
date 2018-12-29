@@ -1,0 +1,13 @@
+
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Connections>
+    <Connection Name="Source" ConnectionString="Data Source=.;Initial Catalog=Test;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></Connection>
+    <Connection Name="Destination" ConnectionString="Data Source=.;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;"></Connection>
+  </Connections>
+  <Databases>
+    <!--<Database Name="test" ConnectionName="Source" />-->
+    <Database Name="AdventureWorks2012" ConnectionName="Destination" />
+  </Databases>
+</Biml>
+
+<!--<#@ template language="C#" tier="1" #>-->

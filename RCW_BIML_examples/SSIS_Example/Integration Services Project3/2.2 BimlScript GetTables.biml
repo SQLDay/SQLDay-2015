@@ -1,0 +1,32 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  
+<!--<# 
+  var includedSchemas = new List<string>{"Production"};
+  var includedTables = new List<string>{};
+  
+  var dstConn = RootNode.OleDbConnections["Destination"];
+  var dstSch = dstConn.GetDatabaseSchema(); 
+
+  
+  #>-->  
+  <Packages>
+    <Package  Name="DropCreateStagingTables" ConstraintMode="Parallel">
+      <Tasks>
+<!--      <# foreach (var table in dstSch.TableNodes) { #>-->
+          <ExecuteSQL Name="Drop and Create <#=table.Schema#>_<#=table.Name#>" ConnectionName="Destination">
+            <DirectInput><#=table.GetDropAndCreateDdl()#></DirectInput>
+          </ExecuteSQL>
+<!--       <# } #>-->
+      </Tasks>
+    </Package>
+  </Packages>
+</Biml>
+
+
+<#@ import namespace="Varigence.Languages.Biml.Connection" #>
+<#@ import namespace="Varigence.BIML.Extensions" #>
+<#@ import namespace="Varigence.BIML.Extensions.SchemaManagement" #>
+<#@ import namespace="Varigence.Biml.CoreLowerer.SchemaManagement" #>
+  
+  
+<#@ template language="C#" tier="2" #>

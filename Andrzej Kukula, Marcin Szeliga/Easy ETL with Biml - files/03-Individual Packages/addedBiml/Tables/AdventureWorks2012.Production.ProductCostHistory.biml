@@ -1,0 +1,23 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="ProductCostHistory" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <TableReference Name="ProductID" ForeignKeyNameOverride="FK_ProductCostHistory_Product_ProductID" TableName="AdventureWorks2012.Production.Product" />
+                <Column Name="StartDate" DataType="DateTime" />
+                <Column Name="EndDate" DataType="DateTime" IsNullable="true" />
+                <Column Name="StandardCost" DataType="Currency" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_ProductCostHistory_ProductID_StartDate" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ProductID" />
+                        <Column ColumnName="StartDate" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

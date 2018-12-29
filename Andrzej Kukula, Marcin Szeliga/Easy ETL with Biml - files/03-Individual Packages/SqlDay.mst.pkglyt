@@ -1,0 +1,26 @@
+Package1	Package1.Copy to Stage	380.2	73.2	566.8	550
+Package1	Package1.Copy to Stage.Person	101.2	14.18	300	100
+Package1	Package1.Copy to Stage.OLEDBDestination2	228.4	285.98	300	100
+Package1	Package1.Copy to Stage.Eliminate NULLs in MiddleName	169.6	146.58	300	100
+Load Person	Load Person.Copy to Stage	5	5	408	555
+Load Person	Load Person.Copy to Stage.Person	48	5	300	100
+Load Person	Load Person.Copy to Stage.OLEDBDestination2	228.4	285.98	300	100
+Load Person	Load Person.Copy to Stage.Eliminate NULLs in MiddleName	48	155	300	100
+Load Person	Load Person.Copy to Stage.StgPerson	48	305	300	100
+Load Person	Load Person.Copy to Stage.Add LoadDate	48	155	300	100
+Load Person	Load Person.Copy to Stage.Add LoadDateTime	48	155	300	100
+Load BusinessEntity	Load BusinessEntity.Copy to Stage	5	5	408	555
+Load BusinessEntity	Load BusinessEntity.Copy to Stage.BusinessEntity	48	5	300	100
+Load BusinessEntity	Load BusinessEntity.Copy to Stage.Add LoadDateTime	48	155	300	100
+Load BusinessEntity	Load BusinessEntity.Copy to Stage.StgBusinessEntity	48	305	300	100
+**********Compact Node Bounds
+**********Source Anchors
+Load Person	Load Person.Copy to Stage	Load Person.Copy to Stage.Output
+Load Person	Load Person.Copy to Stage.Person	Load Person.Copy to Stage.Person.Output
+Load Person	Load Person.Copy to Stage.Person	Load Person.Copy to Stage.Person.Error
+Load Person	Load Person.Copy to Stage.Add LoadDateTime	Load Person.Copy to Stage.Add LoadDateTime.Output
+Load Person	Load Person.Copy to Stage.Add LoadDateTime	Load Person.Copy to Stage.Add LoadDateTime.Error
+Load Person	Load Person.Copy to Stage.StgPerson	Load Person.Copy to Stage.StgPerson.Error
+**********Sink Anchors
+Load Person	Load Person.Copy to Stage.Add LoadDateTime	Load Person.Copy to Stage.Person.Output
+Load Person	Load Person.Copy to Stage.StgPerson	Load Person.Copy to Stage.Add LoadDateTime.Output

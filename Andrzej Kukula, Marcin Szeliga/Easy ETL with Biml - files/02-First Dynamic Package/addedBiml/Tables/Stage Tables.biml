@@ -1,0 +1,13 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+		<# foreach (var table in RootNode.Tables.Where(t => t.LogicalDisplayFolder == "Source")) { #>
+        <Table Name="<#= table.Name #>" SchemaName="Stage.AW" LogicalDisplayFolder="Stage">
+			<Columns>
+				<#= table.Columns.GetBiml() #>
+				<Column Name="LoadDateTime" DataType="DateTime" />
+            </Columns>
+		</Table>
+		<# } #>
+    </Tables>
+</Biml>
+<#@ template tier="100" #>

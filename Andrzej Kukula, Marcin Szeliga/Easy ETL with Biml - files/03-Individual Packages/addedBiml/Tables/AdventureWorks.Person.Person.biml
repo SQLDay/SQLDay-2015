@@ -1,0 +1,28 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="Person" SchemaName="AdventureWorks2012.Person" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="BusinessEntityID" />
+                <Column Name="PersonType" DataType="StringFixedLength" Length="2" />
+                <Column Name="NameStyle" DataType="Boolean" />
+                <Column Name="Title" DataType="String" Length="8" IsNullable="true" />
+                <Column Name="FirstName" DataType="String" Length="50" />
+                <Column Name="MiddleName" DataType="String" Length="50" IsNullable="true" />
+                <Column Name="LastName" DataType="String" Length="50" />
+                <Column Name="Suffix" DataType="String" Length="10" IsNullable="true" />
+                <Column Name="EmailPromotion" />
+                <Column Name="AdditionalContactInfo" DataType="Xml" IsNullable="true" />
+                <Column Name="Demographics" DataType="Xml" IsNullable="true" />
+                <Column Name="rowguid" DataType="Guid" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_Person_BusinessEntityID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="BusinessEntityID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+        </Table>
+    </Tables>
+</Biml>

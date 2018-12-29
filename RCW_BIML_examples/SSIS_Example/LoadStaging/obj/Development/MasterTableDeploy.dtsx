@@ -1,0 +1,1510 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/5/2016 2:08:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AN03350"
+  DTS:CreatorName="Kamil.Nowinski"
+  DTS:DTSID="{2032A78E-D184-4086-AB9B-4D0036BDBC2E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.4100.1"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="MasterTableDeploy"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{8CA1EA86-9753-443F-A061-9B5EEBDD0536}"
+  DTS:VersionMajor="0">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Target]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+      DTS:ObjectName="Target">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost\SQL2014;Initial Catalog=DataPatternsStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_dbo_Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E9BA484C-0A8D-449C-84E5-5AA15E29DA35}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_dbo_Audit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="45">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_dbo_Audit]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_dbo_Audit]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_dbo_Audit]&#xA;(&#xA;-- Columns Definition&#xA; [TYPE] char(1) &#xA;, [TableName] nvarchar(128) NOT NULL &#xA;, [PK] nvarchar(32) NOT NULL &#xA;, [FieldName] nvarchar(128) NOT NULL &#xA;, [OldValue] nvarchar(2000) NOT NULL &#xA;, [NewValue] nvarchar(2000) NOT NULL &#xA;, [UpdateDate] datetime &#xA;, [UserName] nvarchar(128) NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_dbo_AWBuildVersion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E8B78877-51C9-4DE5-ABE1-853F6BFE6F38}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_dbo_AWBuildVersion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="43">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_dbo_AWBuildVersion]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_dbo_AWBuildVersion]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_dbo_AWBuildVersion]&#xA;(&#xA;-- Columns Definition&#xA; [SystemInformationID] tinyint IDENTITY(1,1) NOT NULL &#xA;, [Database Version] nvarchar(25) NOT NULL &#xA;, [VersionDate] datetime NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_dbo_DatabaseLog"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{29E92594-BFBB-4B94-B4A3-BFED094F4493}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_dbo_DatabaseLog"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="41">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_dbo_DatabaseLog]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_dbo_DatabaseLog]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_dbo_DatabaseLog]&#xA;(&#xA;-- Columns Definition&#xA; [DatabaseLogID] int IDENTITY(1,1) NOT NULL &#xA;, [PostTime] datetime NOT NULL &#xA;, [DatabaseUser] nvarchar(128) NOT NULL &#xA;, [Event] nvarchar(128) NOT NULL &#xA;, [Schema] nvarchar(128) &#xA;, [Object] nvarchar(128) &#xA;, [TSQL] nvarchar(max) NOT NULL &#xA;, [XmlEvent] xml NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_dbo_ErrorLog"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{FEEE6EA6-10B3-452C-8441-4D1EAB9989B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_dbo_ErrorLog"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="39">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_dbo_ErrorLog]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_dbo_ErrorLog]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_dbo_ErrorLog]&#xA;(&#xA;-- Columns Definition&#xA; [ErrorLogID] int IDENTITY(1,1) NOT NULL &#xA;, [ErrorTime] datetime NOT NULL &#xA;, [UserName] nvarchar(128) NOT NULL &#xA;, [ErrorNumber] int NOT NULL &#xA;, [ErrorSeverity] int &#xA;, [ErrorState] int &#xA;, [ErrorProcedure] nvarchar(126) &#xA;, [ErrorLine] int &#xA;, [ErrorMessage] nvarchar(4000) NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_Department"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{4C756DD5-AF68-468B-B1C7-8DCA7F54293C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_Department"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="37">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_Department]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_Department]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_Department]&#xA;(&#xA;-- Columns Definition&#xA; [DepartmentID] smallint IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [GroupName] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_Employee"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{6DA72899-97C2-4E02-8BD6-371201AAAADB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_Employee"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="35">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_Employee]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_Employee]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_Employee]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [NationalIDNumber] nvarchar(15) NOT NULL &#xA;, [LoginID] nvarchar(256) NOT NULL &#xA;, [OrganizationNode] hierarchyid &#xA;, [OrganizationLevel] AS ([OrganizationNode].[GetLevel]())&#xA;, [JobTitle] nvarchar(50) NOT NULL &#xA;, [BirthDate] date NOT NULL &#xA;, [MaritalStatus] nchar(1) NOT NULL &#xA;, [Gender] nchar(1) NOT NULL &#xA;, [HireDate] date NOT NULL &#xA;, [SalariedFlag] bit NOT NULL &#xA;, [VacationHours] smallint NOT NULL &#xA;, [SickLeaveHours] smallint NOT NULL &#xA;, [CurrentFlag] bit NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_EmployeeDepartmentHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{6B855F01-4C30-451A-A21C-02F43C7D3286}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_EmployeeDepartmentHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="33">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_EmployeeDepartmentHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_EmployeeDepartmentHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_EmployeeDepartmentHistory]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [DepartmentID] smallint NOT NULL &#xA;, [ShiftID] tinyint NOT NULL &#xA;, [StartDate] date NOT NULL &#xA;, [EndDate] date &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_EmployeePayHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{C4C80810-53D3-4E4C-BCEA-D467D0B75EFE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_EmployeePayHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="31">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_EmployeePayHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_EmployeePayHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_EmployeePayHistory]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [RateChangeDate] datetime NOT NULL &#xA;, [Rate] money NOT NULL &#xA;, [PayFrequency] tinyint NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_JobCandidate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{A2AB4B0A-A801-47C8-B30C-AFC46CA32EB7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_JobCandidate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="29">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_JobCandidate]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_JobCandidate]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_JobCandidate]&#xA;(&#xA;-- Columns Definition&#xA; [JobCandidateID] int IDENTITY(1,1) NOT NULL &#xA;, [BusinessEntityID] int &#xA;, [Resume] xml &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_HumanResources_Shift"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{4EA75E2D-E09A-491F-A3B0-965A4BEF9B37}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_HumanResources_Shift"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="27">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_HumanResources_Shift]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_HumanResources_Shift]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_HumanResources_Shift]&#xA;(&#xA;-- Columns Definition&#xA; [ShiftID] tinyint IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [StartTime] time(7) NOT NULL &#xA;, [EndTime] time(7) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_Address"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{12F17A8F-9BD5-450F-8B1D-912761ABBAFD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_Address"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="25">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_Address]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_Address]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_Address]&#xA;(&#xA;-- Columns Definition&#xA; [AddressID] int IDENTITY(1,1) NOT NULL &#xA;, [AddressLine1] nvarchar(60) NOT NULL &#xA;, [AddressLine2] nvarchar(60) &#xA;, [City] nvarchar(30) NOT NULL &#xA;, [StateProvinceID] int NOT NULL &#xA;, [PostalCode] nvarchar(15) NOT NULL &#xA;, [SpatialLocation] geography &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_Address2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F4DEF261-A8B6-48DF-926D-E035792F1DEC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_Address2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="23">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_Address2]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_Address2]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_Address2]&#xA;(&#xA;-- Columns Definition&#xA; [AddressID] int NOT NULL &#xA;, [AddressLine1] nvarchar(60) NOT NULL &#xA;, [AddressLine2] nvarchar(60) &#xA;, [City] nvarchar(30) NOT NULL &#xA;, [StateProvinceID] int NOT NULL &#xA;, [PostalCode] nvarchar(15) NOT NULL &#xA;, [SpatialLocation] geography &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_AddressType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{494A1CCC-0C0A-47BC-84A6-F3FC31359C29}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_AddressType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="21">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_AddressType]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_AddressType]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_AddressType]&#xA;(&#xA;-- Columns Definition&#xA; [AddressTypeID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_BusinessEntity"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{2A49458F-9783-4FE5-B2F9-CE74D09807F1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_BusinessEntity"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="22">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_BusinessEntity]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_BusinessEntity]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_BusinessEntity]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int IDENTITY(1,1) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_BusinessEntityAddress"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E999CED6-034F-4433-8877-252DDFA529BF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_BusinessEntityAddress"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="24">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_BusinessEntityAddress]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_BusinessEntityAddress]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_BusinessEntityAddress]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [AddressID] int NOT NULL &#xA;, [AddressTypeID] int NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_BusinessEntityContact"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{91CE0456-7E8A-4E27-AA1D-9DED248B4E9D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_BusinessEntityContact"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="26">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_BusinessEntityContact]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_BusinessEntityContact]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_BusinessEntityContact]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [PersonID] int NOT NULL &#xA;, [ContactTypeID] int NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_ContactType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B1193EF3-9FF9-4A43-9CDD-F850E48278D4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_ContactType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="28">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_ContactType]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_ContactType]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_ContactType]&#xA;(&#xA;-- Columns Definition&#xA; [ContactTypeID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_CountryRegion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E20EF6B9-A7AA-42C0-B253-A68AE89865BD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_CountryRegion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="30">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_CountryRegion]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_CountryRegion]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_CountryRegion]&#xA;(&#xA;-- Columns Definition&#xA; [CountryRegionCode] nvarchar(3) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_EmailAddress"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{CB4CD31B-9863-4543-A946-E3C9BFAB255D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_EmailAddress"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="32">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_EmailAddress]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_EmailAddress]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_EmailAddress]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [EmailAddressID] int IDENTITY(1,1) NOT NULL &#xA;, [EmailAddress] nvarchar(50) &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_Password"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{0F1CD7BA-46A5-4E3B-BDF7-244929C50B55}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_Password"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="34">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_Password]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_Password]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_Password]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [PasswordHash] nvarchar(128) NOT NULL &#xA;, [PasswordSalt] nvarchar(10) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_Person"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{07FCF699-C428-48A1-95A8-A6668AD596D2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_Person"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="36">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_Person]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_Person]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_Person]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [PersonType] nchar(2) NOT NULL &#xA;, [NameStyle] bit NOT NULL &#xA;, [Title] nvarchar(8) &#xA;, [FirstName] nvarchar(50) NOT NULL &#xA;, [MiddleName] nvarchar(50) &#xA;, [LastName] nvarchar(50) NOT NULL &#xA;, [Suffix] nvarchar(10) &#xA;, [EmailPromotion] int NOT NULL &#xA;, [AdditionalContactInfo] xml &#xA;, [Demographics] xml &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_PersonPhone"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B39E201F-F4DB-49E1-8DCD-7AE1B84DE9F6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_PersonPhone"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="38">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_PersonPhone]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_PersonPhone]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_PersonPhone]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [PhoneNumber] nvarchar(25) NOT NULL &#xA;, [PhoneNumberTypeID] int NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_PhoneNumberType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1F38D236-1999-4694-B71D-F80B68D59134}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_PhoneNumberType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="40">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_PhoneNumberType]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_PhoneNumberType]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_PhoneNumberType]&#xA;(&#xA;-- Columns Definition&#xA; [PhoneNumberTypeID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Person_StateProvince"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3C67BE99-F050-4983-ABE1-33F26E8DEBF3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Person_StateProvince"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="42">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Person_StateProvince]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Person_StateProvince]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Person_StateProvince]&#xA;(&#xA;-- Columns Definition&#xA; [StateProvinceID] int IDENTITY(1,1) NOT NULL &#xA;, [StateProvinceCode] nchar(3) NOT NULL &#xA;, [CountryRegionCode] nvarchar(3) NOT NULL &#xA;, [IsOnlyStateProvinceFlag] bit NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [TerritoryID] int NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_BillOfMaterials"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{048480D2-CC71-4CDC-814E-EC875E9840F4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_BillOfMaterials"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="44">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_BillOfMaterials]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_BillOfMaterials]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_BillOfMaterials]&#xA;(&#xA;-- Columns Definition&#xA; [BillOfMaterialsID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductAssemblyID] int &#xA;, [ComponentID] int NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime &#xA;, [UnitMeasureCode] nchar(3) NOT NULL &#xA;, [BOMLevel] smallint NOT NULL &#xA;, [PerAssemblyQty] decimal(8,2) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_Culture"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3A529401-9332-436E-B6D8-4BC847D15EA3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_Culture"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="46">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_Culture]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_Culture]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_Culture]&#xA;(&#xA;-- Columns Definition&#xA; [CultureID] nchar(6) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_Document"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1D5434BC-DBF0-46B3-9C1C-6C23C3F6B2CC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_Document"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="47">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_Document]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_Document]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_Document]&#xA;(&#xA;-- Columns Definition&#xA; [DocumentNode] hierarchyid NOT NULL &#xA;, [DocumentLevel] AS ([DocumentNode].[GetLevel]())&#xA;, [Title] nvarchar(50) NOT NULL &#xA;, [Owner] int NOT NULL &#xA;, [FolderFlag] bit NOT NULL &#xA;, [FileName] nvarchar(400) NOT NULL &#xA;, [FileExtension] nvarchar(8) NOT NULL &#xA;, [Revision] nchar(5) NOT NULL &#xA;, [ChangeNumber] int NOT NULL &#xA;, [Status] tinyint NOT NULL &#xA;, [DocumentSummary] nvarchar(max) &#xA;, [Document] varbinary(max) &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_Illustration"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F63AA861-621C-4E19-9A19-F254A492CF3F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_Illustration"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="48">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_Illustration]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_Illustration]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_Illustration]&#xA;(&#xA;-- Columns Definition&#xA; [IllustrationID] int IDENTITY(1,1) NOT NULL &#xA;, [Diagram] xml &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_Location"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{4F653C90-EF66-4461-BB3A-E779476A7A99}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_Location"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="49">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_Location]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_Location]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_Location]&#xA;(&#xA;-- Columns Definition&#xA; [LocationID] smallint IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [CostRate] smallmoney NOT NULL &#xA;, [Availability] decimal(8,2) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_Product"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{23A663BF-FD66-4F55-AD91-1230B012FBA0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_Product"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="50">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_Product]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_Product]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_Product]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ProductNumber] nvarchar(25) NOT NULL &#xA;, [MakeFlag] bit NOT NULL &#xA;, [FinishedGoodsFlag] bit NOT NULL &#xA;, [Color] nvarchar(15) &#xA;, [SafetyStockLevel] smallint NOT NULL &#xA;, [ReorderPoint] smallint NOT NULL &#xA;, [StandardCost] money NOT NULL &#xA;, [ListPrice] money NOT NULL &#xA;, [Size] nvarchar(5) &#xA;, [SizeUnitMeasureCode] nchar(3) &#xA;, [WeightUnitMeasureCode] nchar(3) &#xA;, [Weight] decimal(8,2) &#xA;, [DaysToManufacture] int NOT NULL &#xA;, [ProductLine] nchar(2) &#xA;, [Class] nchar(2) &#xA;, [Style] nchar(2) &#xA;, [ProductSubcategoryID] int &#xA;, [ProductModelID] int &#xA;, [SellStartDate] datetime NOT NULL &#xA;, [SellEndDate] datetime &#xA;, [DiscontinuedDate] datetime &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductCategory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{722F16A3-2314-4A88-9BCD-4145C0965DFB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductCategory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="51">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductCategory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductCategory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductCategory]&#xA;(&#xA;-- Columns Definition&#xA; [ProductCategoryID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductCostHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{755C775B-3642-4A34-A772-2DC9C37C793B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductCostHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="52">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductCostHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductCostHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductCostHistory]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime &#xA;, [StandardCost] money NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductDescription"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1D63A606-F01B-4F40-9E30-48744DF913F9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductDescription"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="53">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductDescription]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductDescription]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductDescription]&#xA;(&#xA;-- Columns Definition&#xA; [ProductDescriptionID] int IDENTITY(1,1) NOT NULL &#xA;, [Description] nvarchar(400) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductDocument"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{2082E66C-B464-4050-AB15-577208DB3E87}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductDocument"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="54">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductDocument]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductDocument]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductDocument]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [DocumentNode] hierarchyid NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductInventory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{2686F203-1CA6-41DE-9392-F6E52C4AD025}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductInventory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="55">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductInventory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductInventory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductInventory]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [LocationID] smallint NOT NULL &#xA;, [Shelf] nvarchar(10) NOT NULL &#xA;, [Bin] tinyint NOT NULL &#xA;, [Quantity] smallint NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductListPriceHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{687025E6-2C47-41DC-8CF0-3797BF62B457}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductListPriceHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="56">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductListPriceHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductListPriceHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductListPriceHistory]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime &#xA;, [ListPrice] money NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductModel"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{7F439532-5CD8-4C63-87A8-8BAE29820FFE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductModel"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="57">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductModel]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductModel]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductModel]&#xA;(&#xA;-- Columns Definition&#xA; [ProductModelID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [CatalogDescription] xml &#xA;, [Instructions] xml &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductModelIllustration"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{C3D92B3B-0360-4A25-BFEC-68F37F4CD6D8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductModelIllustration"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="58">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductModelIllustration]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductModelIllustration]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductModelIllustration]&#xA;(&#xA;-- Columns Definition&#xA; [ProductModelID] int NOT NULL &#xA;, [IllustrationID] int NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductModelProductDescriptionCulture"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{1823BAF0-63BE-478F-A4B5-F93B04805ED2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductModelProductDescriptionCulture"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="59">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductModelProductDescriptionCulture]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductModelProductDescriptionCulture]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductModelProductDescriptionCulture]&#xA;(&#xA;-- Columns Definition&#xA; [ProductModelID] int NOT NULL &#xA;, [ProductDescriptionID] int NOT NULL &#xA;, [CultureID] nchar(6) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductPhoto"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{9BA504AC-4516-45CF-AD3D-E04017A8B042}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductPhoto"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="60">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductPhoto]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductPhoto]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductPhoto]&#xA;(&#xA;-- Columns Definition&#xA; [ProductPhotoID] int IDENTITY(1,1) NOT NULL &#xA;, [ThumbNailPhoto] varbinary(max) &#xA;, [ThumbnailPhotoFileName] nvarchar(50) &#xA;, [LargePhoto] varbinary(max) &#xA;, [LargePhotoFileName] nvarchar(50) &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductProductPhoto"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{813FAC4D-A35A-482F-B576-EE1596802D03}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductProductPhoto"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="61">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductProductPhoto]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductProductPhoto]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductProductPhoto]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [ProductPhotoID] int NOT NULL &#xA;, [Primary] bit NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductReview"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B3E72C1C-1584-43EE-87F8-4BEA39993C5B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductReview"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="62">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductReview]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductReview]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductReview]&#xA;(&#xA;-- Columns Definition&#xA; [ProductReviewID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [ReviewerName] nvarchar(50) NOT NULL &#xA;, [ReviewDate] datetime NOT NULL &#xA;, [EmailAddress] nvarchar(50) NOT NULL &#xA;, [Rating] int NOT NULL &#xA;, [Comments] nvarchar(3850) &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ProductSubcategory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{02FE356B-9AF5-42DA-B8A6-C9582EC62249}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ProductSubcategory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="63">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ProductSubcategory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ProductSubcategory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ProductSubcategory]&#xA;(&#xA;-- Columns Definition&#xA; [ProductSubcategoryID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductCategoryID] int NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_ScrapReason"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{37B29033-2D7A-4545-AF93-609B18F3C7F5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_ScrapReason"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="64">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_ScrapReason]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_ScrapReason]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_ScrapReason]&#xA;(&#xA;-- Columns Definition&#xA; [ScrapReasonID] smallint IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_TransactionHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F308A235-9B5C-491B-8335-7640ABC24EE0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_TransactionHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="65">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_TransactionHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_TransactionHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_TransactionHistory]&#xA;(&#xA;-- Columns Definition&#xA; [TransactionID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [ReferenceOrderID] int NOT NULL &#xA;, [ReferenceOrderLineID] int NOT NULL &#xA;, [TransactionDate] datetime NOT NULL &#xA;, [TransactionType] nchar(1) NOT NULL &#xA;, [Quantity] int NOT NULL &#xA;, [ActualCost] money NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_TransactionHistoryArchive"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{0549AC8C-79C1-4C34-BB3A-534CDBBE860A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_TransactionHistoryArchive"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="66">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_TransactionHistoryArchive]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_TransactionHistoryArchive]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_TransactionHistoryArchive]&#xA;(&#xA;-- Columns Definition&#xA; [TransactionID] int NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [ReferenceOrderID] int NOT NULL &#xA;, [ReferenceOrderLineID] int NOT NULL &#xA;, [TransactionDate] datetime NOT NULL &#xA;, [TransactionType] nchar(1) NOT NULL &#xA;, [Quantity] int NOT NULL &#xA;, [ActualCost] money NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_UnitMeasure"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{D27E60E5-3011-4105-8FA2-C1DDFF762B3D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_UnitMeasure"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="67">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_UnitMeasure]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_UnitMeasure]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_UnitMeasure]&#xA;(&#xA;-- Columns Definition&#xA; [UnitMeasureCode] nchar(3) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_WorkOrder"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{0685F2C1-871A-4191-BB63-60DC3FA83205}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_WorkOrder"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="68">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_WorkOrder]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_WorkOrder]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_WorkOrder]&#xA;(&#xA;-- Columns Definition&#xA; [WorkOrderID] int IDENTITY(1,1) NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [OrderQty] int NOT NULL &#xA;, [StockedQty] AS (isnull([OrderQty]-[ScrappedQty],(0)))&#xA;, [ScrappedQty] smallint NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime &#xA;, [DueDate] datetime NOT NULL &#xA;, [ScrapReasonID] smallint &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Production_WorkOrderRouting"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8D77BA1C-E574-4585-89AF-715D0125C010}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Production_WorkOrderRouting"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="69">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Production_WorkOrderRouting]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Production_WorkOrderRouting]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Production_WorkOrderRouting]&#xA;(&#xA;-- Columns Definition&#xA; [WorkOrderID] int NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [OperationSequence] smallint NOT NULL &#xA;, [LocationID] smallint NOT NULL &#xA;, [ScheduledStartDate] datetime NOT NULL &#xA;, [ScheduledEndDate] datetime NOT NULL &#xA;, [ActualStartDate] datetime &#xA;, [ActualEndDate] datetime &#xA;, [ActualResourceHrs] decimal(9,4) &#xA;, [PlannedCost] money NOT NULL &#xA;, [ActualCost] money &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Purchasing_ProductVendor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{FF44836E-7857-4CF2-9C6B-4A0F7F911ACD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Purchasing_ProductVendor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="70">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Purchasing_ProductVendor]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Purchasing_ProductVendor]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Purchasing_ProductVendor]&#xA;(&#xA;-- Columns Definition&#xA; [ProductID] int NOT NULL &#xA;, [BusinessEntityID] int NOT NULL &#xA;, [AverageLeadTime] int NOT NULL &#xA;, [StandardPrice] money NOT NULL &#xA;, [LastReceiptCost] money &#xA;, [LastReceiptDate] datetime &#xA;, [MinOrderQty] int NOT NULL &#xA;, [MaxOrderQty] int NOT NULL &#xA;, [OnOrderQty] int &#xA;, [UnitMeasureCode] nchar(3) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Purchasing_PurchaseOrderDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{168BF603-2D1F-4CD0-994C-F74757D74757}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Purchasing_PurchaseOrderDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Purchasing_PurchaseOrderDetail]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Purchasing_PurchaseOrderDetail]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Purchasing_PurchaseOrderDetail]&#xA;(&#xA;-- Columns Definition&#xA; [PurchaseOrderID] int NOT NULL &#xA;, [PurchaseOrderDetailID] int IDENTITY(1,1) NOT NULL &#xA;, [DueDate] datetime NOT NULL &#xA;, [OrderQty] smallint NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [UnitPrice] money NOT NULL &#xA;, [LineTotal] AS (isnull([OrderQty]*[UnitPrice],(0.00)))&#xA;, [ReceivedQty] decimal(8,2) NOT NULL &#xA;, [RejectedQty] decimal(8,2) NOT NULL &#xA;, [StockedQty] AS (isnull([ReceivedQty]-[RejectedQty],(0.00)))&#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Purchasing_PurchaseOrderHeader"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3DFECBA4-12AE-4C6C-9E13-0A293D06DA68}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Purchasing_PurchaseOrderHeader"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Purchasing_PurchaseOrderHeader]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Purchasing_PurchaseOrderHeader]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Purchasing_PurchaseOrderHeader]&#xA;(&#xA;-- Columns Definition&#xA; [PurchaseOrderID] int IDENTITY(1,1) NOT NULL &#xA;, [RevisionNumber] tinyint NOT NULL &#xA;, [Status] tinyint NOT NULL &#xA;, [EmployeeID] int NOT NULL &#xA;, [VendorID] int NOT NULL &#xA;, [ShipMethodID] int NOT NULL &#xA;, [OrderDate] datetime NOT NULL &#xA;, [ShipDate] datetime &#xA;, [SubTotal] money NOT NULL &#xA;, [TaxAmt] money NOT NULL &#xA;, [Freight] money NOT NULL &#xA;, [TotalDue] AS (isnull(([SubTotal]+[TaxAmt])+[Freight],(0)))&#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Purchasing_ShipMethod"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{27560429-0BDC-426B-8F0B-1C9C7F15E58B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Purchasing_ShipMethod"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Purchasing_ShipMethod]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Purchasing_ShipMethod]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Purchasing_ShipMethod]&#xA;(&#xA;-- Columns Definition&#xA; [ShipMethodID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ShipBase] money NOT NULL &#xA;, [ShipRate] money NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Purchasing_Vendor"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{BBAD668B-857F-4E9B-82C9-F8FD478942AB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Purchasing_Vendor"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Purchasing_Vendor]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Purchasing_Vendor]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Purchasing_Vendor]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [AccountNumber] nvarchar(15) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [CreditRating] tinyint NOT NULL &#xA;, [PreferredVendorStatus] bit NOT NULL &#xA;, [ActiveFlag] bit NOT NULL &#xA;, [PurchasingWebServiceURL] nvarchar(1024) &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_CountryRegionCurrency"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E228A6B1-AB59-4201-91EA-3BC3EF50DD47}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_CountryRegionCurrency"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_CountryRegionCurrency]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_CountryRegionCurrency]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_CountryRegionCurrency]&#xA;(&#xA;-- Columns Definition&#xA; [CountryRegionCode] nvarchar(3) NOT NULL &#xA;, [CurrencyCode] nchar(3) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_CreditCard"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E5BDCBC5-8225-4DF0-BAB7-3D7F05796480}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_CreditCard"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="5">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_CreditCard]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_CreditCard]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_CreditCard]&#xA;(&#xA;-- Columns Definition&#xA; [CreditCardID] int IDENTITY(1,1) NOT NULL &#xA;, [CardType] nvarchar(50) NOT NULL &#xA;, [CardNumber] nvarchar(25) NOT NULL &#xA;, [ExpMonth] tinyint NOT NULL &#xA;, [ExpYear] smallint NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_Currency"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{9FDDDC1C-1B8E-4883-9995-D5DFA3A446A7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_Currency"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="6">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_Currency]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_Currency]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_Currency]&#xA;(&#xA;-- Columns Definition&#xA; [CurrencyCode] nchar(3) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_CurrencyRate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{A1E33C08-291D-48A2-8ABD-40A6F1B8CD98}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_CurrencyRate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="7">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_CurrencyRate]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_CurrencyRate]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_CurrencyRate]&#xA;(&#xA;-- Columns Definition&#xA; [CurrencyRateID] int IDENTITY(1,1) NOT NULL &#xA;, [CurrencyRateDate] datetime NOT NULL &#xA;, [FromCurrencyCode] nchar(3) NOT NULL &#xA;, [ToCurrencyCode] nchar(3) NOT NULL &#xA;, [AverageRate] money NOT NULL &#xA;, [EndOfDayRate] money NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_Customer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{F87748B6-66E4-438B-9093-AC30BBEC089F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_Customer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="8">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_Customer]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_Customer]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_Customer]&#xA;(&#xA;-- Columns Definition&#xA; [CustomerID] int IDENTITY(1,1) NOT NULL &#xA;, [PersonID] int &#xA;, [StoreID] int &#xA;, [TerritoryID] int &#xA;, [AccountNumber] nvarchar(10) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_PersonCreditCard"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{6B8FA0B2-382C-41B0-9B8A-1B2B6913791F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_PersonCreditCard"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="9">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_PersonCreditCard]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_PersonCreditCard]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_PersonCreditCard]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [CreditCardID] int NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesOrderDetail"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{EFCC8A4A-F8D7-48AC-832B-9E8AB5BA033D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesOrderDetail"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="10">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesOrderDetail]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesOrderDetail]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesOrderDetail]&#xA;(&#xA;-- Columns Definition&#xA; [SalesOrderID] int NOT NULL &#xA;, [SalesOrderDetailID] int IDENTITY(1,1) NOT NULL &#xA;, [CarrierTrackingNumber] nvarchar(25) &#xA;, [OrderQty] smallint NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [SpecialOfferID] int NOT NULL &#xA;, [UnitPrice] money NOT NULL &#xA;, [UnitPriceDiscount] money NOT NULL &#xA;, [LineTotal] AS (isnull(([UnitPrice]*((1.0)-[UnitPriceDiscount]))*[OrderQty],(0.0)))&#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesOrderHeader"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{9D8B47DE-A385-4BD7-A630-C8C90C8A8D9E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesOrderHeader"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="11">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesOrderHeader]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesOrderHeader]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesOrderHeader]&#xA;(&#xA;-- Columns Definition&#xA; [SalesOrderID] int IDENTITY(1,1) NOT NULL &#xA;, [RevisionNumber] tinyint NOT NULL &#xA;, [OrderDate] datetime NOT NULL &#xA;, [DueDate] datetime NOT NULL &#xA;, [ShipDate] datetime &#xA;, [Status] tinyint NOT NULL &#xA;, [OnlineOrderFlag] bit NOT NULL &#xA;, [SalesOrderNumber] AS (isnull(N'SO'+CONVERT([nvarchar](23),[SalesOrderID]),N'*** ERROR ***'))&#xA;, [PurchaseOrderNumber] nvarchar(25) &#xA;, [AccountNumber] nvarchar(15) &#xA;, [CustomerID] int NOT NULL &#xA;, [SalesPersonID] int &#xA;, [TerritoryID] int &#xA;, [BillToAddressID] int NOT NULL &#xA;, [ShipToAddressID] int NOT NULL &#xA;, [ShipMethodID] int NOT NULL &#xA;, [CreditCardID] int &#xA;, [CreditCardApprovalCode] nvarchar(15) NOT NULL &#xA;, [CurrencyRateID] int &#xA;, [SubTotal] money NOT NULL &#xA;, [TaxAmt] money NOT NULL &#xA;, [Freight] money NOT NULL &#xA;, [TotalDue] AS (isnull(([SubTotal]+[TaxAmt])+[Freight],(0)))&#xA;, [Comment] nvarchar(128) &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesOrderHeaderSalesReason"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{867953FD-3654-426C-A6CE-526DB9E3564B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesOrderHeaderSalesReason"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="12">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesOrderHeaderSalesReason]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesOrderHeaderSalesReason]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesOrderHeaderSalesReason]&#xA;(&#xA;-- Columns Definition&#xA; [SalesOrderID] int NOT NULL &#xA;, [SalesReasonID] int NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesPerson"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{3F8D38D5-1AF4-4EB4-A711-7A58BB716DF1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesPerson"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="13">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesPerson]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesPerson]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesPerson]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [TerritoryID] int &#xA;, [SalesQuota] money &#xA;, [Bonus] money NOT NULL &#xA;, [CommissionPct] smallmoney NOT NULL &#xA;, [SalesYTD] money NOT NULL &#xA;, [SalesLastYear] money NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesPersonQuotaHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{26A5AC01-99AF-4628-84CD-897BE68AD76D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesPersonQuotaHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="14">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesPersonQuotaHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesPersonQuotaHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesPersonQuotaHistory]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [QuotaDate] datetime NOT NULL &#xA;, [SalesQuota] money NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesReason"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{5A41A5D7-F8D6-4293-A002-4C873F4F5605}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesReason"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="15">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesReason]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesReason]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesReason]&#xA;(&#xA;-- Columns Definition&#xA; [SalesReasonID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [ReasonType] nvarchar(50) NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesTaxRate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{B8A4D117-53C8-4E1B-9946-A73AD0A0C702}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesTaxRate"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="16">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesTaxRate]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesTaxRate]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesTaxRate]&#xA;(&#xA;-- Columns Definition&#xA; [SalesTaxRateID] int IDENTITY(1,1) NOT NULL &#xA;, [StateProvinceID] int NOT NULL &#xA;, [TaxType] tinyint NOT NULL &#xA;, [TaxRate] smallmoney NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesTerritory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{E20F5BEB-4A09-4C74-B66D-88BF33325877}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesTerritory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="17">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesTerritory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesTerritory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesTerritory]&#xA;(&#xA;-- Columns Definition&#xA; [TerritoryID] int IDENTITY(1,1) NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [CountryRegionCode] nvarchar(3) NOT NULL &#xA;, [Group] nvarchar(50) NOT NULL &#xA;, [SalesYTD] money NOT NULL &#xA;, [SalesLastYear] money NOT NULL &#xA;, [CostYTD] money NOT NULL &#xA;, [CostLastYear] money NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SalesTerritoryHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{8A193856-DFA0-4ACC-B707-A4E207437918}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SalesTerritoryHistory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="18">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SalesTerritoryHistory]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SalesTerritoryHistory]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SalesTerritoryHistory]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [TerritoryID] int NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_ShoppingCartItem"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{07B2AF82-DCCE-4A53-9FE9-EECC27DA4DA6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_ShoppingCartItem"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="19">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_ShoppingCartItem]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_ShoppingCartItem]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_ShoppingCartItem]&#xA;(&#xA;-- Columns Definition&#xA; [ShoppingCartItemID] int IDENTITY(1,1) NOT NULL &#xA;, [ShoppingCartID] nvarchar(50) NOT NULL &#xA;, [Quantity] int NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [DateCreated] datetime NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SpecialOffer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{322EBEF3-8CCE-415B-A93B-43B0D963FD8F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SpecialOffer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="20">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SpecialOffer]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SpecialOffer]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SpecialOffer]&#xA;(&#xA;-- Columns Definition&#xA; [SpecialOfferID] int IDENTITY(1,1) NOT NULL &#xA;, [Description] nvarchar(255) NOT NULL &#xA;, [DiscountPct] smallmoney NOT NULL &#xA;, [Type] nvarchar(50) NOT NULL &#xA;, [Category] nvarchar(50) NOT NULL &#xA;, [StartDate] datetime NOT NULL &#xA;, [EndDate] datetime NOT NULL &#xA;, [MinQty] int NOT NULL &#xA;, [MaxQty] int &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_SpecialOfferProduct"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{DFB13826-442B-4C8B-8DD7-6948392A6F69}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_SpecialOfferProduct"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="71">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_SpecialOfferProduct]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_SpecialOfferProduct]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_SpecialOfferProduct]&#xA;(&#xA;-- Columns Definition&#xA; [SpecialOfferID] int NOT NULL &#xA;, [ProductID] int NOT NULL &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging_Sales_Store"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{63E3B2BD-24C1-419C-9503-DD1B0CB5B3E5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging_Sales_Store"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="72">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{394820C3-9C0C-48E0-AFCF-1BA8C4D3FC2C}"
+          SQLTask:SqlStatementSource="SET ANSI_NULLS ON&#xA;SET QUOTED_IDENTIFIER ON&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;IF EXISTS (SELECT * from sys.objects WHERE object_id = OBJECT_ID(N'[stg].[Staging_Sales_Store]') AND type IN (N'U'))&#xA;DROP TABLE [stg].[Staging_Sales_Store]&#xA;GO&#xA;&#xA;CREATE TABLE [stg].[Staging_Sales_Store]&#xA;(&#xA;-- Columns Definition&#xA; [BusinessEntityID] int NOT NULL &#xA;, [Name] nvarchar(50) NOT NULL &#xA;, [SalesPersonID] int &#xA;, [Demographics] xml &#xA;, [rowguid] uniqueidentifier NOT NULL &#xA;, [ModifiedDate] datetime NOT NULL &#xA;&#xA;-- Constraints&#xA;&#xA;)&#xA;ON &quot;default&quot;&#xA;WITH (DATA_COMPRESSION = NONE)&#xA;GO&#xA;&#xA;-------------------------------------------------------------------&#xA;&#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Create Staging_dbo_Audit"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Create Staging_dbo_AWBuildVersion"
+          TopLeft="270,5.5" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Create Staging_dbo_DatabaseLog"
+          TopLeft="583.5,5.49999999999989" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Create Staging_dbo_ErrorLog"
+          TopLeft="884.5,5.49999999999989" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Create Staging_HumanResources_Department"
+          TopLeft="1165,5.49999999999989" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Create Staging_HumanResources_Employee"
+          TopLeft="1525,5.49999999999977" />
+        <NodeLayout
+          Size="378,42"
+          Id="Package\Create Staging_HumanResources_EmployeeDepartmentHistory"
+          TopLeft="1874.5,5.49999999999977" />
+        <NodeLayout
+          Size="339,42"
+          Id="Package\Create Staging_HumanResources_EmployeePayHistory"
+          TopLeft="2313,5.49999999999977" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\Create Staging_HumanResources_JobCandidate"
+          TopLeft="2713,5.49999999999966" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Create Staging_HumanResources_Shift"
+          TopLeft="3081,5.49999999999966" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Create Staging_Person_Address"
+          TopLeft="3407,5.49999999999955" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Create Staging_Person_Address2"
+          TopLeft="3699,5.49999999999955" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Create Staging_Person_AddressType"
+          TopLeft="3996.5,5.49999999999955" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Create Staging_Person_BusinessEntity"
+          TopLeft="4311,5.49999999999943" />
+        <NodeLayout
+          Size="298,42"
+          Id="Package\Create Staging_Person_BusinessEntityAddress"
+          TopLeft="4632.5,5.49999999999943" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Create Staging_Person_BusinessEntityContact"
+          TopLeft="4991,5.49999999999943" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Create Staging_Person_ContactType"
+          TopLeft="5349,5.49999999999932" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Create Staging_Person_CountryRegion"
+          TopLeft="5663,5.49999999999932" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Create Staging_Person_EmailAddress"
+          TopLeft="5986.5,5.49999999999932" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Create Staging_Person_Password"
+          TopLeft="6303.5,5.4999999999992" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Create Staging_Person_Person"
+          TopLeft="6602.5,5.4999999999992" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Create Staging_Person_PersonPhone"
+          TopLeft="6889,5.4999999999992" />
+        <NodeLayout
+          Size="283,42"
+          Id="Package\Create Staging_Person_PhoneNumberType"
+          TopLeft="7205,5.49999999999909" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Create Staging_Person_StateProvince"
+          TopLeft="7548.5,5.49999999999909" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Create Staging_Production_BillOfMaterials"
+          TopLeft="7867,5.49999999999909" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Create Staging_Production_Culture"
+          TopLeft="8206.5,5.49999999999898" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\Create Staging_Production_Document"
+          TopLeft="8513.5,5.49999999999898" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Create Staging_Production_Illustration"
+          TopLeft="8834.5,5.49999999999898" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Create Staging_Production_Location"
+          TopLeft="9157,5.49999999999886" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Create Staging_Production_Product"
+          TopLeft="9468.5,5.49999999999886" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\Create Staging_Production_ProductCategory"
+          TopLeft="9777.5,5.49999999999875" />
+        <NodeLayout
+          Size="301,42"
+          Id="Package\Create Staging_Production_ProductCostHistory"
+          TopLeft="10128,5.49999999999875" />
+        <NodeLayout
+          Size="300,42"
+          Id="Package\Create Staging_Production_ProductDescription"
+          TopLeft="10489.5,5.49999999999875" />
+        <NodeLayout
+          Size="296,42"
+          Id="Package\Create Staging_Production_ProductDocument"
+          TopLeft="10850.5,5.49999999999864" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Create Staging_Production_ProductInventory"
+          TopLeft="11207,5.49999999999864" />
+        <NodeLayout
+          Size="319,42"
+          Id="Package\Create Staging_Production_ProductListPriceHistory"
+          TopLeft="11561,5.49999999999864" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Create Staging_Production_ProductModel"
+          TopLeft="11940.5,5.49999999999852" />
+        <NodeLayout
+          Size="326,42"
+          Id="Package\Create Staging_Production_ProductModelIllustration"
+          TopLeft="12277.5,5.49999999999852" />
+        <NodeLayout
+          Size="398,42"
+          Id="Package\Create Staging_Production_ProductModelProductDescriptionCulture"
+          TopLeft="12664.5,5.49999999999841" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\Create Staging_Production_ProductPhoto"
+          TopLeft="13123,5.49999999999841" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\Create Staging_Production_ProductProductPhoto"
+          TopLeft="13459,5.49999999999841" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\Create Staging_Production_ProductReview"
+          TopLeft="13831,5.49999999999829" />
+        <NodeLayout
+          Size="306,42"
+          Id="Package\Create Staging_Production_ProductSubcategory"
+          TopLeft="14172.5,5.49999999999829" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\Create Staging_Production_ScrapReason"
+          TopLeft="14539.5,5.49999999999818" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Create Staging_Production_TransactionHistory"
+          TopLeft="14872,5.49999999999818" />
+        <NodeLayout
+          Size="334,42"
+          Id="Package\Create Staging_Production_TransactionHistoryArchive"
+          TopLeft="15231.5,5.49999999999818" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Create Staging_Production_UnitMeasure"
+          TopLeft="15626.5,5.49999999999807" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Create Staging_Production_WorkOrder"
+          TopLeft="15957,5.49999999999807" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Create Staging_Production_WorkOrderRouting"
+          TopLeft="16281,5.49999999999795" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Create Staging_Purchasing_ProductVendor"
+          TopLeft="16640.5,5.49999999999795" />
+        <NodeLayout
+          Size="309,42"
+          Id="Package\Create Staging_Purchasing_PurchaseOrderDetail"
+          TopLeft="16983,5.49999999999795" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Create Staging_Purchasing_PurchaseOrderHeader"
+          TopLeft="17352.5,5.49999999999784" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\Create Staging_Purchasing_ShipMethod"
+          TopLeft="17729.5,5.49999999999784" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Create Staging_Purchasing_Vendor"
+          TopLeft="18058,5.49999999999784" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Create Staging_Sales_CountryRegionCurrency"
+          TopLeft="18366,5.49999999999773" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Create Staging_Sales_CreditCard"
+          TopLeft="18723.5,5.49999999999773" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\Create Staging_Sales_Currency"
+          TopLeft="19020.5,5.49999999999773" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Create Staging_Sales_CurrencyRate"
+          TopLeft="19309,5.49999999999761" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Create Staging_Sales_Customer"
+          TopLeft="19619,5.49999999999761" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\Create Staging_Sales_PersonCreditCard"
+          TopLeft="19910.5,5.49999999999761" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\Create Staging_Sales_SalesOrderDetail"
+          TopLeft="20239.5,5.4999999999975" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\Create Staging_Sales_SalesOrderHeader"
+          TopLeft="20564,5.4999999999975" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\Create Staging_Sales_SalesOrderHeaderSalesReason"
+          TopLeft="20895.5,5.49999999999739" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\Create Staging_Sales_SalesPerson"
+          TopLeft="21286.5,5.49999999999739" />
+        <NodeLayout
+          Size="304,42"
+          Id="Package\Create Staging_Sales_SalesPersonQuotaHistory"
+          TopLeft="21589.5,5.49999999999739" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Create Staging_Sales_SalesReason"
+          TopLeft="21954,5.49999999999727" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Create Staging_Sales_SalesTaxRate"
+          TopLeft="22260,5.49999999999727" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\Create Staging_Sales_SalesTerritory"
+          TopLeft="22570,5.49999999999727" />
+        <NodeLayout
+          Size="284,42"
+          Id="Package\Create Staging_Sales_SalesTerritoryHistory"
+          TopLeft="22881.5,5.49999999999716" />
+        <NodeLayout
+          Size="272,42"
+          Id="Package\Create Staging_Sales_ShoppingCartItem"
+          TopLeft="23226.5,5.49999999999716" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Create Staging_Sales_SpecialOffer"
+          TopLeft="23559,5.49999999999716" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\Create Staging_Sales_SpecialOfferProduct"
+          TopLeft="23863,5.49999999999704" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Create Staging_Sales_Store"
+          TopLeft="24203,5.49999999999704" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

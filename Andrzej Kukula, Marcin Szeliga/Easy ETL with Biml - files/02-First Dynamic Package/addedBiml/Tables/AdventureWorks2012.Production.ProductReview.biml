@@ -1,0 +1,34 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="ProductReview" SchemaName="AdventureWorks2012.Production" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ProductReviewID" IdentityIncrement="1" />
+                <TableReference Name="ProductID" ForeignKeyNameOverride="FK_ProductReview_Product_ProductID" TableName="AdventureWorks2012.Production.Product" />
+                <Column Name="ReviewerName" DataType="String" Length="50" />
+                <Column Name="ReviewDate" DataType="DateTime" />
+                <Column Name="EmailAddress" DataType="String" Length="50" />
+                <Column Name="Rating" />
+                <Column Name="Comments" DataType="String" Length="3850" IsNullable="true" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_ProductReview_ProductReviewID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ProductReviewID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="IX_ProductReview_ProductID_Name">
+                    <Columns>
+                        <Column ColumnName="ProductID" />
+                        <Column ColumnName="ReviewerName" />
+                    </Columns>
+                    <Includes>
+                        <Include ColumnName="Comments" />
+                    </Includes>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

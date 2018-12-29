@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:54"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{C50743ED-84AB-4812-B3B6-AF5784FD2D1D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Load Shift to Stage"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{CD5F21AC-F836-4407-9B18-9F4D54A33AE6}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9C0E04CD-F8D9-48F3-8DC5-9F11B8B5ECE4}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CF8DE523-EEF9-4AC4-A9FA-B66568D86D8A}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{8F3A91FF-3215-4BE5-AE2F-C8D1B5C05496}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Shift to Stage"
+      DTS:refId="Package\Copy Shift to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="AdventureWorks2012_HumanResources_Shift"
+              refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift"
+              usesDispositions="true"
+              version="7">
+              <connections>
+                <connection
+                  connectionManagerID="{9C0E04CD-F8D9-48F3-8DC5-9F11B8B5ECE4}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Connections[OleDbConnection]"></connection>
+              </connections>
+              <outputs>
+                <output
+                  name="Output"
+                  refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="ui1"
+                      name="ShiftID"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[ShiftID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="16"
+                      name="StartTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[StartTime]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="16"
+                      name="EndTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[EndTime]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[ShiftID]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[ShiftID]"
+                      name="ShiftID"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[ShiftID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[Name]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[StartTime]"
+                      length="16"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[StartTime]"
+                      name="StartTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[StartTime]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[EndTime]"
+                      length="16"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[EndTime]"
+                      name="EndTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[EndTime]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[ModifiedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="ui1"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ShiftID]"
+                      name="ShiftID"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ShiftID]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[Name]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[StartTime]"
+                      name="StartTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[StartTime]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[EndTime]"
+                      name="EndTime"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[EndTime]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ModifiedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[HumanResources].[Shift]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+            </component>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="Add LoadDateTime"
+              refId="Package\Copy Shift to Stage\Add LoadDateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  name="AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime"
+                  refId="Package\Copy Shift to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  name="Output"
+                  refId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Output]"
+                  synchronousInputId="Package\Copy Shift to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      name="LoadDateTime"
+                      refId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::ContainerStartTime]</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::ContainerStartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Error]"
+                  synchronousInputId="Package\Copy Shift to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="StgShift"
+              refId="Package\Copy Shift to Stage\StgShift"
+              usesDispositions="true"
+              version="4">
+              <connections>
+                <connection
+                  connectionManagerID="{CF8DE523-EEF9-4AC4-A9FA-B66568D86D8A}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Shift to Stage\StgShift.Connections[OleDbConnection]"></connection>
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Add LoadDateTime_Output_StgShift"
+                  refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="ui1"
+                      name="ShiftID"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[ShiftID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="16"
+                      name="StartTime"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[StartTime]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="16"
+                      name="EndTime"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[EndTime]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="LoadDateTime"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[LoadDateTime]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LoadDateTime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[LoadDateTime]"
+                      lineageId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].Columns[LoadDateTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[Name]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[Name]"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].Columns[Name]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="StartTime"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[StartTime]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[StartTime]"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].Columns[StartTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="EndTime"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[EndTime]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[EndTime]"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].Columns[EndTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output].Columns[ModifiedDate]"
+                      refId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift].Columns[ModifiedDate]"></inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Shift to Stage\StgShift.Outputs[Error]"
+                  synchronousInputId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\StgShift.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Shift to Stage\StgShift.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Shift to Stage\StgShift.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Shift to Stage\StgShift.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AW].[Shift]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="Package\Copy Shift to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime]"
+              name="AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime"
+              refId="Package\Copy Shift to Stage.Paths[AdventureWorks2012_HumanResources_Shift_Output_Add LoadDateTime]"
+              startId="Package\Copy Shift to Stage\AdventureWorks2012_HumanResources_Shift.Outputs[Output]"></path>
+            <path
+              endId="Package\Copy Shift to Stage\StgShift.Inputs[Add LoadDateTime_Output_StgShift]"
+              name="Add LoadDateTime_Output_StgShift"
+              refId="Package\Copy Shift to Stage.Paths[Add LoadDateTime_Output_StgShift]"
+              startId="Package\Copy Shift to Stage\Add LoadDateTime.Outputs[Output]"></path>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

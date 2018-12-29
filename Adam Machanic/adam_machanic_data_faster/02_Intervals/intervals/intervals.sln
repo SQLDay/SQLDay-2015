@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "intervals", "intervals\intervals.sqlproj", "{440B101F-9968-45EC-99F1-368E3300BF4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440B101F-9968-45EC-99F1-368E3300BF4E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

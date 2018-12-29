@@ -1,0 +1,33 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="Shift" SchemaName="AdventureWorks2012.HumanResources" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="ShiftID" DataType="Byte" IdentityIncrement="1" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="StartTime" DataType="Time" Scale="7" />
+                <Column Name="EndTime" DataType="Time" Scale="7" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_Shift_ShiftID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="ShiftID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_Shift_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+                <Index Name="AK_Shift_StartTime_EndTime" Unique="true">
+                    <Columns>
+                        <Column ColumnName="StartTime" />
+                        <Column ColumnName="EndTime" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

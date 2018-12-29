@@ -1,0 +1,3 @@
+<DTSConfiguration><DTSConfigurationHeading><DTSConfigurationFileInfo /></DTSConfigurationHeading>
+<Configuration ConfiguredType="Property" Path="\Package.Connections[Stage].Properties[ConnectionString]" ValueType="String"><ConfiguredValue>Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage</ConfiguredValue></Configuration>
+</DTSConfiguration>

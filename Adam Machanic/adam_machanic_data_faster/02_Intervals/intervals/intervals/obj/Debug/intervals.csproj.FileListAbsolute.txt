@@ -1,0 +1,4 @@
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\bin\Debug\intervals.dll
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\bin\Debug\intervals.pdb
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\obj\Debug\intervals.dll
+c:\users\amachani\documents\visual studio 2010\Projects\intervals\intervals\obj\Debug\intervals.pdb

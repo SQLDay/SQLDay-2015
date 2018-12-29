@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:54"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{811811B7-C547-4F5A-82DC-F91A654CBA06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Load Person to Stage"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{B4B72273-4AE0-4817-8BC8-E42B779831BF}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{705280F4-54CA-49F5-92D8-9A430B7FBD3E}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{045A2F80-748C-4389-9317-9F8AB288B446}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{7FA61BE3-FDA7-4CE4-840F-554134A24727}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Person to Stage"
+      DTS:refId="Package\Copy Person to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="AdventureWorks2012_Person_Person"
+              refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person"
+              usesDispositions="true"
+              version="7">
+              <connections>
+                <connection
+                  connectionManagerID="{705280F4-54CA-49F5-92D8-9A430B7FBD3E}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Connections[OleDbConnection]"></connection>
+              </connections>
+              <outputs>
+                <output
+                  name="Output"
+                  refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="BusinessEntityID"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[BusinessEntityID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[PersonType]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="NameStyle"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[NameStyle]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="8"
+                      name="Title"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Title]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[FirstName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[MiddleName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="LastName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[LastName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Suffix]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="EmailPromotion"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[EmailPromotion]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="nText"
+                      name="AdditionalContactInfo"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[AdditionalContactInfo]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="nText"
+                      name="Demographics"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Demographics]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[BusinessEntityID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[PersonType]"
+                      length="2"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[PersonType]"
+                      name="PersonType"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[PersonType]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[NameStyle]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[NameStyle]"
+                      name="NameStyle"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[NameStyle]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Title]"
+                      length="8"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Title]"
+                      name="Title"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Title]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[FirstName]"
+                      name="FirstName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[FirstName]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[MiddleName]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[LastName]"
+                      name="LastName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[LastName]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Suffix]"
+                      length="10"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Suffix]"
+                      name="Suffix"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Suffix]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[EmailPromotion]"
+                      name="EmailPromotion"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[EmailPromotion]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[AdditionalContactInfo]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[Demographics]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Demographics]"
+                      name="Demographics"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Demographics]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[rowguid]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[ModifiedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[BusinessEntityID]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[PersonType]"
+                      name="PersonType"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[PersonType]"></outputColumn>
+                    <outputColumn
+                      dataType="bool"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[NameStyle]"
+                      name="NameStyle"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[NameStyle]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Title]"
+                      name="Title"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Title]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[FirstName]"
+                      name="FirstName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[FirstName]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[MiddleName]"
+                      name="MiddleName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[MiddleName]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[LastName]"
+                      name="LastName"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[LastName]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Suffix]"
+                      name="Suffix"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Suffix]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[EmailPromotion]"
+                      name="EmailPromotion"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[EmailPromotion]"></outputColumn>
+                    <outputColumn
+                      dataType="nText"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[AdditionalContactInfo]"
+                      name="AdditionalContactInfo"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[AdditionalContactInfo]"></outputColumn>
+                    <outputColumn
+                      dataType="nText"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Demographics]"
+                      name="Demographics"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[Demographics]"></outputColumn>
+                    <outputColumn
+                      dataType="guid"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[rowguid]"
+                      name="rowguid"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[rowguid]"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ModifiedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Person].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+            </component>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="Add LoadDateTime"
+              refId="Package\Copy Person to Stage\Add LoadDateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  name="AdventureWorks2012_Person_Person_Output_Add LoadDateTime"
+                  refId="Package\Copy Person to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_Person_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  name="Output"
+                  refId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Output]"
+                  synchronousInputId="Package\Copy Person to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_Person_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      name="LoadDateTime"
+                      refId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::ContainerStartTime]</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::ContainerStartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Error]"
+                  synchronousInputId="Package\Copy Person to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_Person_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="StgPerson"
+              refId="Package\Copy Person to Stage\StgPerson"
+              usesDispositions="true"
+              version="4">
+              <connections>
+                <connection
+                  connectionManagerID="{045A2F80-748C-4389-9317-9F8AB288B446}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Person to Stage\StgPerson.Connections[OleDbConnection]"></connection>
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Add LoadDateTime_Output_StgPerson"
+                  refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="BusinessEntityID"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[BusinessEntityID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[PersonType]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="bool"
+                      name="NameStyle"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[NameStyle]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="8"
+                      name="Title"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Title]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[FirstName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[MiddleName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="LastName"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[LastName]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="10"
+                      name="Suffix"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Suffix]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="i4"
+                      name="EmailPromotion"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[EmailPromotion]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="nText"
+                      name="AdditionalContactInfo"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[AdditionalContactInfo]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="nText"
+                      name="Demographics"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Demographics]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="guid"
+                      name="rowguid"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[rowguid]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="LoadDateTime"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[LoadDateTime]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LoadDateTime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[LoadDateTime]"
+                      lineageId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[LoadDateTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[BusinessEntityID]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[BusinessEntityID]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[PersonType]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[PersonType]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[PersonType]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="bool"
+                      cachedName="NameStyle"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[NameStyle]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[NameStyle]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[NameStyle]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Title]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Title]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[Title]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[FirstName]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[FirstName]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[FirstName]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[MiddleName]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[MiddleName]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[MiddleName]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[LastName]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[LastName]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[LastName]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Suffix]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Suffix]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[Suffix]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="i4"
+                      cachedName="EmailPromotion"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[EmailPromotion]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[EmailPromotion]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[EmailPromotion]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="nText"
+                      cachedName="AdditionalContactInfo"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[AdditionalContactInfo]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[AdditionalContactInfo]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[AdditionalContactInfo]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="nText"
+                      cachedName="Demographics"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[Demographics]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[Demographics]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[Demographics]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[rowguid]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[rowguid]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[rowguid]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output].Columns[ModifiedDate]"
+                      refId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson].Columns[ModifiedDate]"></inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Person to Stage\StgPerson.Outputs[Error]"
+                  synchronousInputId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\StgPerson.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Person to Stage\StgPerson.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Person to Stage\StgPerson.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Person to Stage\StgPerson.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AW].[Person]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="Package\Copy Person to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Person_Person_Output_Add LoadDateTime]"
+              name="AdventureWorks2012_Person_Person_Output_Add LoadDateTime"
+              refId="Package\Copy Person to Stage.Paths[AdventureWorks2012_Person_Person_Output_Add LoadDateTime]"
+              startId="Package\Copy Person to Stage\AdventureWorks2012_Person_Person.Outputs[Output]"></path>
+            <path
+              endId="Package\Copy Person to Stage\StgPerson.Inputs[Add LoadDateTime_Output_StgPerson]"
+              name="Add LoadDateTime_Output_StgPerson"
+              refId="Package\Copy Person to Stage.Paths[Add LoadDateTime_Output_StgPerson]"
+              startId="Package\Copy Person to Stage\Add LoadDateTime.Outputs[Output]"></path>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

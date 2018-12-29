@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IsPackageEditorCompactDisplayModeEnabled>False</IsPackageEditorCompactDisplayModeEnabled>
+    <IsTemplateAutoUpdatePreviewEnabled>True</IsTemplateAutoUpdatePreviewEnabled>
+    <IsTemplateCheckBimlSyntaxEnabled>True</IsTemplateCheckBimlSyntaxEnabled>
+    <IsTemplateAutoFormatXmlEnabled>True</IsTemplateAutoFormatXmlEnabled>
+    <AddedXmlFilesPath>addedBiml</AddedXmlFilesPath>
+    <CompilationOutputPath>output</CompilationOutputPath>
+    <DocumentationOutputPath>documentation</DocumentationOutputPath>
+    <DocumentationTemplatePath />
+    <IsWarnAsErrorEnabled>False</IsWarnAsErrorEnabled>
+    <WarningLevel>4</WarningLevel>
+    <IsCleanOutputFolderEnabled>False</IsCleanOutputFolderEnabled>
+    <IsCleanDocumentationFolderEnabled>False</IsCleanDocumentationFolderEnabled>
+    <SqlVersion>SqlServer2014</SqlVersion>
+    <SsasVersion>Ssas2014</SsasVersion>
+    <SsisVersion>Ssis2014</SsisVersion>
+    <UseProjectDeploymentModel>True</UseProjectDeploymentModel>
+    <ExtraCommandLineOptions />
+    <EmitDocumentationAnnotations>True</EmitDocumentationAnnotations>
+    <EmitCodeCommentAnnotations>False</EmitCodeCommentAnnotations>
+    <EmitTagAnnotations>False</EmitTagAnnotations>
+    <EmitEmittableAssets>True</EmitEmittableAssets>
+    <EmitIncludeAssets>True</EmitIncludeAssets>
+    <DefaultConnectionName />
+    <LoweringTemplateConfigurationPath />
+    <SelectedConfigurationFilePath />
+    <SelectedFrameworkFilePath />
+    <MistVersion>4.0.50313.0</MistVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <RootFolder Include=" ">
+      <RootFolderId>0</RootFolderId>
+    </RootFolder>
+  </ItemGroup>
+  <ItemGroup>
+    <Live Include="addedBiml\Connections\Source.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Connections\Stage.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Databases\AdventureWorks2012.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Databases\Stage.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Packages\Load Person.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Projects\Load to Stage.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Schemas\AdventureWorks.Person.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Schemas\AdventureWorks2012.HumanResources.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Schemas\AdventureWorks2012.Production.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Schemas\Stage.AW.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks.Person.BusinessEntity.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks.Person.Person.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.HumanResources.Department.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.HumanResources.Shift.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Person.ContactType.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Person.CountryRegion.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.Location.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.Product.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.ProductCategory.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.ProductCostHistory.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.ProductDescription.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.ProductModel.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\AdventureWorks2012.Production.ProductReview.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <Live Include="addedBiml\Tables\Stage Tables.biml">
+      <RootFolderId>0</RootFolderId>
+    </Live>
+    <None Include="SqlDay.bimlproj">
+      <RootFolderId>0</RootFolderId>
+    </None>
+  </ItemGroup>
+</Project>

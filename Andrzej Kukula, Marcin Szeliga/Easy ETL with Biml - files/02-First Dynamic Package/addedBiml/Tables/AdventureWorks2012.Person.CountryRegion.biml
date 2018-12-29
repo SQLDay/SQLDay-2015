@@ -1,0 +1,25 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="CountryRegion" SchemaName="AdventureWorks2012.Person" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="CountryRegionCode" DataType="String" Length="3" />
+                <Column Name="Name" DataType="String" Length="50" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_CountryRegion_CountryRegionCode" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="CountryRegionCode" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+            <Indexes>
+                <Index Name="AK_CountryRegion_Name" Unique="true">
+                    <Columns>
+                        <Column ColumnName="Name" />
+                    </Columns>
+                </Index>
+            </Indexes>
+        </Table>
+    </Tables>
+</Biml>

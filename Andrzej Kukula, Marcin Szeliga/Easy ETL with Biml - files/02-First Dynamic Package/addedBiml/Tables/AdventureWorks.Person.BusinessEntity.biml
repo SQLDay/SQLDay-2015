@@ -1,0 +1,18 @@
+﻿<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+    <Tables>
+        <Table Name="BusinessEntity" SchemaName="AdventureWorks2012.Person" LogicalDisplayFolder="Source">
+            <Columns>
+                <Column Name="BusinessEntityID" IdentityIncrement="1" />
+                <Column Name="rowguid" DataType="Guid" />
+                <Column Name="ModifiedDate" DataType="DateTime" />
+            </Columns>
+            <Keys>
+                <PrimaryKey Name="PK_BusinessEntity_BusinessEntityID" Clustered="false">
+                    <Columns>
+                        <Column ColumnName="BusinessEntityID" />
+                    </Columns>
+                </PrimaryKey>
+            </Keys>
+        </Table>
+    </Tables>
+</Biml>

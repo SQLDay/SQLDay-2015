@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable
+  DTS:CreationDate="05/17/2015 17:26:54"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AK81"
+  DTS:CreatorName="Andrzej"
+  DTS:DTSID="{074F9282-0D70-4F6F-8EFA-EF8ACECFE7DE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion=""
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Load Location to Stage"
+  DTS:refId="Package"
+  DTS:VersionBuild="0"
+  DTS:VersionGUID="{1D85D7DE-6175-4248-A98C-574023E254DD}"
+  DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1BEDDEDF-42BA-46A1-A69A-618280843C72}"
+      DTS:ObjectName="Source"
+      DTS:refId="Package.ConnectionManagers[Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=AdventureWorks2012"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8E6CA0F8-AC5B-4145-AE78-BAD3880EFF8A}"
+      DTS:ObjectName="Stage"
+      DTS:refId="Package.ConnectionManagers[Stage]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=SQLOLEDB;Data Source=.\sql2014;Integrated Security=SSPI;Initial Catalog=Stage"></DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{56287C22-1F1B-4184-9021-C6B4FDD769FC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copy Location to Stage"
+      DTS:refId="Package\Copy Location to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              name="AdventureWorks2012_Production_Location"
+              refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location"
+              usesDispositions="true"
+              version="7">
+              <connections>
+                <connection
+                  connectionManagerID="{1BEDDEDF-42BA-46A1-A69A-618280843C72}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Source]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Connections[OleDbConnection]"></connection>
+              </connections>
+              <outputs>
+                <output
+                  name="Output"
+                  refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="LocationID"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[LocationID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="CostRate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[CostRate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="numeric"
+                      name="Availability"
+                      precision="8"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[Availability]"
+                      scale="2"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[LocationID]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[LocationID]"
+                      name="LocationID"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[LocationID]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Name]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[CostRate]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[CostRate]"
+                      name="CostRate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[CostRate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[Availability]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Availability]"
+                      name="Availability"
+                      precision="8"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Availability]"
+                      scale="2"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[ModifiedDate]"
+                      truncationRowDisposition="FailComponent"></outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i2"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[LocationID]"
+                      name="LocationID"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[LocationID]"></outputColumn>
+                    <outputColumn
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[Name]"
+                      name="Name"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[Name]"></outputColumn>
+                    <outputColumn
+                      dataType="cy"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[CostRate]"
+                      name="CostRate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[CostRate]"></outputColumn>
+                    <outputColumn
+                      dataType="numeric"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[Availability]"
+                      name="Availability"
+                      precision="8"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[Availability]"
+                      scale="2"></outputColumn>
+                    <outputColumn
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ModifiedDate]"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Production].[Location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+            </component>
+            <component
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              name="Add LoadDateTime"
+              refId="Package\Copy Location to Stage\Add LoadDateTime"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  name="AdventureWorks2012_Production_Location_Output_Add LoadDateTime"
+                  refId="Package\Copy Location to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Location_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  name="Output"
+                  refId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Output]"
+                  synchronousInputId="Package\Copy Location to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Location_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      name="LoadDateTime"
+                      refId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      scale="7"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[System::ContainerStartTime]</property>
+                        <property
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[System::ContainerStartTime]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Error]"
+                  synchronousInputId="Package\Copy Location to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Location_Output_Add LoadDateTime]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              name="StgLocation"
+              refId="Package\Copy Location to Stage\StgLocation"
+              usesDispositions="true"
+              version="4">
+              <connections>
+                <connection
+                  connectionManagerID="{8E6CA0F8-AC5B-4145-AE78-BAD3880EFF8A}:external"
+                  connectionManagerRefId="Package.ConnectionManagers[Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection"
+                  refId="Package\Copy Location to Stage\StgLocation.Connections[OleDbConnection]"></connection>
+              </connections>
+              <inputs>
+                <input
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Add LoadDateTime_Output_StgLocation"
+                  refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation]">
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      dataType="i2"
+                      name="LocationID"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[LocationID]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="wstr"
+                      length="50"
+                      name="Name"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[Name]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="cy"
+                      name="CostRate"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[CostRate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="numeric"
+                      name="Availability"
+                      precision="8"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[Availability]"
+                      scale="2"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[ModifiedDate]"></externalMetadataColumn>
+                    <externalMetadataColumn
+                      dataType="dbTimeStamp"
+                      name="LoadDateTime"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[LoadDateTime]"></externalMetadataColumn>
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LoadDateTime"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[LoadDateTime]"
+                      lineageId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Output].Columns[LoadDateTime]"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].Columns[LoadDateTime]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[Name]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Name]"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].Columns[Name]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="cy"
+                      cachedName="CostRate"
+                      externalMetadataColumnId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[CostRate]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[CostRate]"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].Columns[CostRate]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="numeric"
+                      cachedName="Availability"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[Availability]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[Availability]"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].Columns[Availability]"></inputColumn>
+                    <inputColumn
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output].Columns[ModifiedDate]"
+                      refId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation].Columns[ModifiedDate]"></inputColumn>
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error"
+                  refId="Package\Copy Location to Stage\StgLocation.Outputs[Error]"
+                  synchronousInputId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation]">
+                  <externalMetadataColumns></externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\StgLocation.Outputs[Error].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      refId="Package\Copy Location to Stage\StgLocation.Outputs[Error].Columns[ErrorCode]"
+                      specialFlags="1"></outputColumn>
+                    <outputColumn
+                      dataType="i4"
+                      lineageId="Package\Copy Location to Stage\StgLocation.Outputs[Error].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      refId="Package\Copy Location to Stage\StgLocation.Outputs[Error].Columns[ErrorColumn]"
+                      specialFlags="2"></outputColumn>
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[AW].[Location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path
+              endId="Package\Copy Location to Stage\Add LoadDateTime.Inputs[AdventureWorks2012_Production_Location_Output_Add LoadDateTime]"
+              name="AdventureWorks2012_Production_Location_Output_Add LoadDateTime"
+              refId="Package\Copy Location to Stage.Paths[AdventureWorks2012_Production_Location_Output_Add LoadDateTime]"
+              startId="Package\Copy Location to Stage\AdventureWorks2012_Production_Location.Outputs[Output]"></path>
+            <path
+              endId="Package\Copy Location to Stage\StgLocation.Inputs[Add LoadDateTime_Output_StgLocation]"
+              name="Add LoadDateTime_Output_StgLocation"
+              refId="Package\Copy Location to Stage.Paths[Add LoadDateTime_Output_StgLocation]"
+              startId="Package\Copy Location to Stage\Add LoadDateTime.Outputs[Output]"></path>
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+</DTS:Executable>

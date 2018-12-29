@@ -1,0 +1,6 @@
+<Configuration xmlns="http://schemas.varigence.com/Settings.xsd">
+    <Settings>
+        <StringSetting Name="OpenDocumentWindows">FP:addedBiml\Packages\Load Person.biml|</StringSetting>
+        <StringSetting Name="NotificationStatus">[]</StringSetting>
+    </Settings>
+</Configuration>

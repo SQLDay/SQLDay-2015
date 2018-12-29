@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>HotelSample</TargetDatabaseName>
+    <DeployScriptFileName>AppDomain_Issues.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=.\ss2014;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <ScriptDatabaseOptions>False</ScriptDatabaseOptions>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <DropIndexesNotInSource>False</DropIndexesNotInSource>
+    <DropExtendedPropertiesNotInSource>False</DropExtendedPropertiesNotInSource>
+    <DropDmlTriggersNotInSource>False</DropDmlTriggersNotInSource>
+    <DropConstraintsNotInSource>False</DropConstraintsNotInSource>
+    <DisableAndReenableDdlTriggers>False</DisableAndReenableDdlTriggers>
+    <DropStatisticsNotInSource>False</DropStatisticsNotInSource>
+    <IgnoreAnsiNulls>False</IgnoreAnsiNulls>
+    <IgnoreAuthorizer>True</IgnoreAuthorizer>
+    <IgnoreColumnCollation>True</IgnoreColumnCollation>
+    <IgnoreComments>True</IgnoreComments>
+    <IgnoreDdlTriggerOrder>True</IgnoreDdlTriggerOrder>
+    <IgnoreDdlTriggerState>True</IgnoreDdlTriggerState>
+    <IgnoreDefaultSchema>True</IgnoreDefaultSchema>
+    <IgnoreDmlTriggerOrder>True</IgnoreDmlTriggerOrder>
+    <IgnoreDmlTriggerState>True</IgnoreDmlTriggerState>
+    <IgnoreExtendedProperties>True</IgnoreExtendedProperties>
+    <IgnoreIdentitySeed>True</IgnoreIdentitySeed>
+    <IgnoreIncrement>True</IgnoreIncrement>
+    <IgnoreIndexOptions>True</IgnoreIndexOptions>
+    <IgnoreLockHintsOnIndexes>True</IgnoreLockHintsOnIndexes>
+    <IgnoreNotForReplication>True</IgnoreNotForReplication>
+    <IgnorePartitionSchemes>True</IgnorePartitionSchemes>
+    <IgnorePermissions>True</IgnorePermissions>
+    <IgnoreRoleMembership>True</IgnoreRoleMembership>
+    <IgnoreTableOptions>True</IgnoreTableOptions>
+    <IgnoreUserSettingsObjects>True</IgnoreUserSettingsObjects>
+    <IgnoreWithNocheckOnForeignKeys>True</IgnoreWithNocheckOnForeignKeys>
+    <IgnoreWithNocheckOnCheckConstraints>True</IgnoreWithNocheckOnCheckConstraints>
+    <IncludeTransactionalScripts>True</IncludeTransactionalScripts>
+    <ScriptRefreshModule>False</ScriptRefreshModule>
+    <ScriptNewConstraintValidation>False</ScriptNewConstraintValidation>
+    <VerifyCollationCompatibility>True</VerifyCollationCompatibility>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+</Project>

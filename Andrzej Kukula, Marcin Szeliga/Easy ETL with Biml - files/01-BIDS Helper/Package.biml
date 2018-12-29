@@ -1,0 +1,23 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <Packages>
+    <Package Name="Load Person" ProtectionLevel="EncryptSensitiveWithUserKey">
+      <Tasks>
+        <Dataflow Name="Copy Person to Stage">
+          <Transformations>
+            <OleDbSource Name="Person" ConnectionName="Source">
+              <TableInput TableName="AdventureWorks2012.Person.Person" />
+            </OleDbSource>
+            <DerivedColumns Name="Add LoadDateTime">
+              <Columns>
+                <Column Name="LoadDateTime" DataType="DateTime">@[System::ContainerStartTime]</Column>
+              </Columns>
+            </DerivedColumns>
+            <OleDbDestination Name="StgPerson" ConnectionName="Stage">
+              <TableOutput TableName="Stage.AW.Person" />
+            </OleDbDestination>
+          </Transformations>
+        </Dataflow>
+      </Tasks>
+    </Package>
+  </Packages>
+</Biml>
